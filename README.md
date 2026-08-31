@@ -58,3 +58,4 @@ flutter build apk --release
 
 ## 📜 Lisensi
 Open-source di bawah lisensi MIT.
+
