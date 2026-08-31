@@ -1,0 +1,248 @@
+/* =========================================================
+   BASE.CSS - Responsive Layout, Typography & App Container
+   Optimized for Luxury Desktop Dashboard & Sleek Mobile
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--bg-base);
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    transition: var(--transition-theme);
+    padding: max(16px, env(safe-area-inset-top)) clamp(14px, 2.5vw, 32px) max(32px, env(safe-area-inset-bottom)) clamp(14px, 2.5vw, 32px);
+}
+
+/* Hide scrollbars completely */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Subtle Geometric Star Grid */
+.islamic-pattern-bg {
+    position: fixed;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle at 50% 50%, var(--pattern-color) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 0% 0%, var(--pattern-color) 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Soft Atmospheric Light Glows */
+.ambient-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.8;
+}
+.glow-1 {
+    width: clamp(280px, 40vw, 550px);
+    height: clamp(280px, 40vw, 550px);
+    background: var(--glow-color-1);
+    top: -100px;
+    left: -80px;
+}
+.glow-2 {
+    width: clamp(280px, 40vw, 600px);
+    height: clamp(280px, 40vw, 600px);
+    background: var(--glow-color-2);
+    bottom: -100px;
+    right: -80px;
+}
+.glow-3 {
+    width: clamp(240px, 35vw, 450px);
+    height: clamp(240px, 35vw, 450px);
+    background: var(--glow-color-3);
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* --- APP CONTAINER (Expansive 1200px for Desktop, Auto for Mobile) --- */
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 auto;
+}
+
+/* --- 1. BISMILLAH RIBBON --- */
+.bismillah-ribbon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 0;
+}
+
+.arabic-bismillah {
+    font-family: var(--font-arabic);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold-primary);
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 12px var(--gold-glow);
+}
+
+/* --- 2. CRAFTED APP HEADER --- */
+.app-header {
+    background: var(--card-bg);
+    border: 1.5px solid var(--card-border);
+    border-radius: 20px;
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-theme);
+    width: 100%;
+}
+
+.brand-identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.brand-crest {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(13, 92, 58, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--emerald-primary);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+body[data-theme="green-dark"] .brand-crest,
+body[data-theme="dark"] .brand-crest {
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.brand-text-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.brand-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-title {
+    font-family: var(--font-main);
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    color: var(--text-primary);
+}
+
+.brand-arabic-badge {
+    font-family: var(--font-arabic);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold-primary);
+    line-height: 1;
+}
+
+.brand-sub {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Header Actions & Quick Controls */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--inner-box-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.header-icon-btn:hover {
+    background: var(--card-bg);
+    border-color: var(--card-border-hover);
+    color: var(--emerald-primary);
+    transform: translateY(-1px);
+}
+
+.header-icon-btn.active {
+    color: var(--emerald-primary);
+    border-color: var(--emerald-primary);
+}
+
+.header-icon-btn#toggleDarkModeBtn {
+    color: var(--gold-primary);
+}
+
+.mobile-header-actions {
+    display: none;
+}
+
+/* --- FOOTER --- */
+.app-footer {
+    text-align: center;
+    padding: 16px 0 24px;
+}
+
+.app-footer p {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}

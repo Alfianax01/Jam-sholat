@@ -1,0 +1,71 @@
+<!-- INTERACTIVE QIBLA COMPASS MODAL -->
+<div class="modal-overlay" id="qiblaModal">
+    <div class="modal-card">
+        <div class="modal-header">
+            <div class="modal-title-box">
+                <i class="fa-solid fa-kaaba modal-title-icon"></i>
+                <h3>Kompas Arah Kiblat</h3>
+            </div>
+            <button class="modal-close" id="closeQiblaModalBtn">&times;</button>
+        </div>
+
+        <div class="qibla-modal-body">
+            <!-- Angle & Distance Readouts -->
+            <div class="qibla-readout-grid">
+                <div class="qibla-readout-card">
+                    <span class="qibla-readout-label">Derajat Arah Kiblat</span>
+                    <span class="qibla-readout-val accent" id="qiblaAngleVal">295.1°</span>
+                </div>
+                <div class="qibla-readout-card">
+                    <span class="qibla-readout-label">Jarak ke Ka'bah</span>
+                    <span class="qibla-readout-val" id="qiblaDistVal">~7.925 km</span>
+                </div>
+            </div>
+
+            <!-- Live Compass Viewport & Needle -->
+            <div class="compass-viewport">
+                <div class="compass-bezel">
+                    <div class="compass-dial" id="compassDial">
+                        <div class="compass-inner-ring"></div>
+                        
+                        <!-- Cardinal Direction Markers -->
+                        <span class="compass-cardinal compass-north">U</span>
+                        <span class="compass-cardinal compass-east">T</span>
+                        <span class="compass-cardinal compass-south">S</span>
+                        <span class="compass-cardinal compass-west">B</span>
+
+                        <!-- Center Nut -->
+                        <div class="compass-center-nut">
+                            <div class="compass-center-gem"></div>
+                        </div>
+                    </div>
+
+                    <!-- Needle pointing to Kaaba -->
+                    <div class="qibla-needle" id="qiblaNeedle">
+                        <div class="qibla-kaaba-badge" title="Arah Ka'bah (Makkah)">
+                            <i class="fa-solid fa-kaaba"></i>
+                        </div>
+                        <div class="qibla-needle-body"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alignment Status Banner -->
+            <div class="qibla-status-badge static" id="qiblaStatusBadge">
+                <i class="fa-solid fa-kaaba"></i> Arah Kiblat: ~295.1° Barat Laut
+            </div>
+
+            <!-- Footer & GPS Precision Tool -->
+            <div class="qibla-footer-row">
+                <div class="qibla-location-info">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <span id="qiblaLocationLabel">KOTA JAKARTA</span>
+                </div>
+                <button class="btn-detect-gps" id="btnDetectGPS" title="Gunakan GPS Presisi">
+                    <i class="fa-solid fa-location-crosshairs"></i> Deteksi GPS
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

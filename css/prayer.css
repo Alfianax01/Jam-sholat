@@ -1,0 +1,264 @@
+/* =========================================================
+   PRAYER.CSS - Prayer Times Grid & Next Prayer Active Banner
+   Responsive 4x2 or 8-Column Grid on Desktop / Mobile
+   ========================================================= */
+
+.prayer-section {
+    background: var(--card-bg);
+    border: 1.5px solid var(--card-border);
+    border-radius: 24px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-theme);
+    width: 100%;
+}
+
+/* Header Row */
+.prayer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.prayer-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+}
+
+.prayer-title-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(13, 92, 58, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: var(--emerald-primary);
+    flex-shrink: 0;
+}
+
+body[data-theme="green-dark"] .prayer-title-icon,
+body[data-theme="dark"] .prayer-title-icon {
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.prayer-title-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.prayer-title-badge {
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: var(--emerald-primary);
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.prayer-title {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Next Prayer Countdown Pill (Solid Emerald Badge) */
+.next-prayer-banner {
+    background: var(--emerald-primary);
+    padding: 6px 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px var(--emerald-glow);
+}
+
+.next-prayer-pulse {
+    display: none;
+}
+
+.next-prayer-info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.next-prayer-label {
+    display: none;
+}
+
+.next-prayer-name {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: capitalize;
+}
+
+.next-prayer-timer {
+    font-family: var(--font-main);
+    font-size: 13px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.1;
+    letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   PRAYER GRID (4x2 MATRIX OF 8 PRAYER TIMES)
+   ========================================================= */
+.prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.prayer-card {
+    background: var(--inner-box-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 10px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 3px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.prayer-card:hover {
+    background: var(--card-bg);
+    border-color: var(--card-border-hover);
+    transform: translateY(-2px);
+}
+
+.prayer-card-icon {
+    font-size: 16px;
+    color: var(--gold-primary);
+    margin-bottom: 2px;
+    transition: all 0.2s;
+}
+
+.prayer-arabic {
+    font-family: var(--font-arabic);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    line-height: 1;
+}
+
+.prayer-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: capitalize;
+    line-height: 1;
+}
+
+.prayer-time {
+    font-family: var(--font-main);
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+}
+
+.prayer-status {
+    display: none;
+}
+
+/* Active Next Prayer Highlight */
+.prayer-card.active {
+    background: rgba(13, 92, 58, 0.15);
+    border: 1.8px solid var(--emerald-primary);
+    box-shadow: 0 4px 14px var(--emerald-glow);
+}
+
+body[data-theme="green-dark"] .prayer-card.active,
+body[data-theme="dark"] .prayer-card.active {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: var(--emerald-primary);
+}
+
+.prayer-card.active .prayer-card-icon {
+    color: var(--emerald-primary);
+}
+
+.prayer-card.active .prayer-arabic {
+    color: var(--emerald-primary);
+}
+
+.prayer-card.active .prayer-name {
+    color: var(--emerald-primary);
+}
+
+.prayer-card.active .prayer-time {
+    color: var(--emerald-primary);
+}
+
+/* Prayer Footer */
+.prayer-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--card-border);
+    gap: 8px;
+}
+
+.location-status {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.location-status i {
+    color: var(--emerald-primary);
+}
+
+.btn-refresh {
+    background: var(--inner-box-bg);
+    border: 1px solid var(--card-border);
+    color: var(--emerald-primary);
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-refresh:hover {
+    background: var(--card-bg);
+    border-color: var(--emerald-primary);
+}

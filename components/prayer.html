@@ -1,0 +1,96 @@
+<section class="prayer-section">
+    <div class="prayer-header">
+        <div class="prayer-title-group">
+            <div class="prayer-title-icon">
+                <i class="fa-solid fa-kaaba"></i>
+            </div>
+            <div>
+                <div class="prayer-title-badge">
+                    KEMENTERIAN AGAMA RI &bull; API MUSLIM
+                </div>
+                <h3 class="prayer-title">Jadwal Sholat & Adzan Hari Ini</h3>
+            </div>
+        </div>
+
+        <!-- Next Prayer Live Countdown Banner -->
+        <div class="next-prayer-banner" id="nextPrayerBanner">
+            <div class="next-prayer-pulse"></div>
+            <div class="next-prayer-info">
+                <span class="next-prayer-label">Sholat Selanjutnya:</span>
+                <span class="next-prayer-name" id="nextPrayerName">-</span>
+            </div>
+            <div class="next-prayer-timer" id="nextPrayerTimer">--:--:--</div>
+        </div>
+    </div>
+
+    <!-- Prayer Grid (8 Times) -->
+    <div class="prayer-grid" id="prayerGrid">
+        <div class="prayer-card" data-prayer="imsak">
+            <div class="prayer-card-icon"><i class="fa-solid fa-cloud-moon"></i></div>
+            <span class="prayer-arabic">الإمساك</span>
+            <span class="prayer-name">Imsak</span>
+            <span class="prayer-time" id="timeImsak">--:--</span>
+            <span class="prayer-status">Waktu Siap</span>
+        </div>
+        <div class="prayer-card" data-prayer="subuh">
+            <div class="prayer-card-icon"><i class="fa-solid fa-sun"></i></div>
+            <span class="prayer-arabic">الفجر</span>
+            <span class="prayer-name">Subuh</span>
+            <span class="prayer-time" id="timeSubuh">--:--</span>
+            <span class="prayer-status">Fajar</span>
+        </div>
+        <div class="prayer-card" data-prayer="terbit">
+            <div class="prayer-card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+            <span class="prayer-arabic">الشروق</span>
+            <span class="prayer-name">Terbit</span>
+            <span class="prayer-time" id="timeTerbit">--:--</span>
+            <span class="prayer-status">Syuruq</span>
+        </div>
+        <div class="prayer-card" data-prayer="dhuha">
+            <div class="prayer-card-icon"><i class="fa-solid fa-sun-plant-wilt"></i></div>
+            <span class="prayer-arabic">الضحى</span>
+            <span class="prayer-name">Dhuha</span>
+            <span class="prayer-time" id="timeDhuha">--:--</span>
+            <span class="prayer-status">Pagi</span>
+        </div>
+        <div class="prayer-card" data-prayer="dzuhur">
+            <div class="prayer-card-icon"><i class="fa-solid fa-sun"></i></div>
+            <span class="prayer-arabic">الظهر</span>
+            <span class="prayer-name">Dzuhur</span>
+            <span class="prayer-time" id="timeDzuhur">--:--</span>
+            <span class="prayer-status">Siang</span>
+        </div>
+        <div class="prayer-card" data-prayer="ashar">
+            <div class="prayer-card-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+            <span class="prayer-arabic">العصر</span>
+            <span class="prayer-name">Ashar</span>
+            <span class="prayer-time" id="timeAshar">--:--</span>
+            <span class="prayer-status">Sore</span>
+        </div>
+        <div class="prayer-card" data-prayer="maghrib">
+            <div class="prayer-card-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+            <span class="prayer-arabic">المغرب</span>
+            <span class="prayer-name">Maghrib</span>
+            <span class="prayer-time" id="timeMaghrib">--:--</span>
+            <span class="prayer-status">Petang</span>
+        </div>
+        <div class="prayer-card" data-prayer="isya">
+            <div class="prayer-card-icon"><i class="fa-solid fa-moon"></i></div>
+            <span class="prayer-arabic">العشاء</span>
+            <span class="prayer-name">Isya</span>
+            <span class="prayer-time" id="timeIsya">--:--</span>
+            <span class="prayer-status">Malam</span>
+        </div>
+    </div>
+
+    <!-- Prayer Footer -->
+    <div class="prayer-footer">
+        <div class="location-status">
+            <i class="fa-solid fa-map-pin"></i>
+            <span>Lokasi: <strong id="locationDetailText">KOTA JAKARTA</strong> (<span id="locationProvince">DKI JAKARTA</span>)</span>
+        </div>
+        <button class="btn-refresh" id="refreshPrayerBtn" title="Sinkronisasi Ulang Jadwal">
+            <i class="fa-solid fa-rotate"></i> Refresh Jadwal
+        </button>
+    </div>
+</section>

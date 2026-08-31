@@ -1,0 +1,44 @@
+<!-- HIERARCHICAL CITY & REGION SELECTOR MODAL -->
+<div class="modal-overlay" id="cityModal">
+    <div class="modal-card">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <div class="modal-title-box">
+                <i class="fa-solid fa-map-location-dot modal-title-icon"></i>
+                <h3>Pilih Wilayah / Daerah</h3>
+            </div>
+            <button class="modal-close" id="closeCityModalBtn">&times;</button>
+        </div>
+
+        <!-- Global Search Box -->
+        <div class="modal-search-wrapper">
+            <div class="modal-search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="citySearchInput" placeholder="Cari nama daerah/kecamatan (cth: Buaran, Duren Sawit, Tebet, BSD, Surabaya)..." autocomplete="off">
+            </div>
+        </div>
+
+        <!-- Breadcrumb Navigation Bar (Visible in District View) -->
+        <div class="modal-breadcrumb-bar" id="modalBreadcrumb">
+            <button class="btn-breadcrumb-back" id="btnBreadcrumbBack">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Kota
+            </button>
+            <span class="breadcrumb-trail" id="breadcrumbCurrent">Jakarta Timur</span>
+        </div>
+
+        <!-- Region Filter Tabs (Visible in Root View) -->
+        <div class="region-tabs-row" id="regionTabsRow">
+            <button class="region-tab-btn active" data-tab="all">🌐 Semua Wilayah</button>
+            <button class="region-tab-btn" data-tab="jakarta">🏙️ DKI Jakarta</button>
+            <button class="region-tab-btn" data-tab="bodetabek">🏘️ Bodetabek</button>
+            <button class="region-tab-btn" data-tab="jawa_luar">🗺️ Luar Jakarta</button>
+        </div>
+
+        <!-- Dynamic City & District List -->
+        <div class="city-list" id="cityList">
+            <div class="city-list-loading">
+                <i class="fa-solid fa-spinner fa-spin"></i> Memuat wilayah...
+            </div>
+        </div>
+    </div>
+</div>

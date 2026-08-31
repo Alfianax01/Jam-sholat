@@ -1,0 +1,377 @@
+/* =========================================================
+   SIDEBAR.CSS - Mobile Navbar, Hamburger & Off-Canvas Drawer
+   ========================================================= */
+
+/* --- HEADER BAR --- */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    background: var(--card-bg);
+    border: 1.5px solid var(--card-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: clamp(12px, 2vw, 16px) clamp(16px, 2.5vw, 22px);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-theme);
+}
+
+.greeting-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.greeting-icon-wrapper {
+    width: clamp(38px, 8vw, 44px);
+    height: clamp(38px, 8vw, 44px);
+    border-radius: 12px;
+    background: var(--inner-box-bg);
+    border: 1.5px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    color: var(--accent);
+    box-shadow: 0 2px 10px var(--accent-glow);
+    transition: var(--transition-theme);
+    flex-shrink: 0;
+}
+
+.greeting-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting-sub {
+    font-size: clamp(0.72rem, 1.8vw, 0.82rem);
+    color: var(--accent);
+    font-weight: 800;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+.greeting-text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+/* Desktop Controls Toolbar */
+.desktop-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-control {
+    background: var(--btn-bg);
+    border: 1.5px solid var(--btn-border);
+    color: var(--btn-color);
+    font-family: var(--font-main);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 13px;
+    min-height: 38px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.btn-control:hover {
+    background: var(--active-prayer-bg);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.btn-control:active {
+    transform: scale(0.96);
+}
+
+.btn-control.active {
+    background: var(--active-prayer-bg);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn-control.highlight {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 2px 10px var(--accent-glow);
+}
+
+.btn-control.highlight:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+/* Test Adzan Button */
+.btn-test-adzan {
+    background: var(--inner-box-bg);
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-test-adzan.playing {
+    background: var(--accent);
+    color: #ffffff;
+    animation: pulseButton 1.5s infinite;
+}
+
+@keyframes pulseButton {
+    0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+    70% { box-shadow: 0 0 0 8px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.btn-icon-arabic {
+    font-family: var(--font-arabic);
+    font-size: 1.15rem;
+    line-height: 1;
+    font-weight: 700;
+}
+
+/* Mobile Actions & Hamburger Button */
+.mobile-header-actions {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-quick-dark {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 12px;
+    font-size: 1.1rem;
+}
+
+.btn-hamburger {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--inner-box-bg);
+    border: 1.5px solid var(--card-border);
+    color: var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-hamburger:hover, .btn-hamburger:active {
+    background: var(--active-prayer-bg);
+    border-color: var(--accent);
+}
+
+.hamburger-bar {
+    width: 20px;
+    height: 2.5px;
+    background-color: var(--accent);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* =========================================================
+   MOBILE OFF-CANVAS SLIDE DRAWER (SIDEBAR)
+   ========================================================= */
+.mobile-sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 2999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-sidebar-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(340px, 86vw);
+    background: var(--card-bg);
+    border-left: 2px solid var(--card-border);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.35);
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)) 16px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.mobile-sidebar::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.mobile-sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1.5px solid var(--card-border);
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.sidebar-close {
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.sidebar-close:hover {
+    color: #ef4444;
+}
+
+.sidebar-content {
+    flex: 1;
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-section-title {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.sidebar-btn {
+    background: var(--inner-box-bg);
+    border: 1.5px solid var(--inner-box-border);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-primary);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-main);
+}
+
+.sidebar-btn:hover, .sidebar-btn:active {
+    background: var(--active-prayer-bg);
+    border-color: var(--accent);
+    transform: translateX(-2px);
+}
+
+.sidebar-btn > i, .sidebar-btn > .sidebar-icon-arabic {
+    font-size: 1.2rem;
+    color: var(--accent);
+    width: 26px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sidebar-icon-arabic {
+    font-family: var(--font-arabic);
+    font-weight: 700;
+}
+
+.sidebar-btn-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar-btn-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.sidebar-btn-desc {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-btn .arrow-icon {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.sidebar-footer {
+    padding-top: 12px;
+    border-top: 1.5px solid var(--card-border);
+    text-align: center;
+}
+
+.sidebar-footer-text {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+

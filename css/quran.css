@@ -1,0 +1,125 @@
+/* =========================================================
+   QURAN.CSS - Daily Quran Verse & Reflection Inspiration Card
+   Responsive Desktop & Mobile Layout
+   ========================================================= */
+
+.quran-quote-card {
+    background: var(--card-bg);
+    border: 1.5px solid var(--card-border);
+    border-radius: 24px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-theme);
+    width: 100%;
+}
+
+/* Header: Topic Tag & Shuffle Button */
+.quran-quote-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.quote-topic-badge {
+    background: rgba(13, 92, 58, 0.15);
+    border: 1px solid rgba(13, 92, 58, 0.4);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--emerald-primary);
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+body[data-theme="green-dark"] .quote-topic-badge,
+body[data-theme="dark"] .quote-topic-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.btn-new-verse {
+    background: var(--inner-box-bg);
+    border: 1px solid var(--card-border);
+    color: var(--emerald-primary);
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-new-verse:hover {
+    background: var(--card-bg);
+    border-color: var(--emerald-primary);
+}
+
+.btn-new-verse i {
+    font-size: 11px;
+}
+
+/* Surah Name Reference */
+.quran-surah-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+/* Arabic Quran Text Typography */
+.quran-arabic-box {
+    font-family: var(--font-arabic);
+    font-size: clamp(18px, 2.2vw, 24px);
+    line-height: 1.9;
+    font-weight: 700;
+    color: var(--text-primary);
+    direction: rtl;
+    text-align: right;
+    word-break: break-word;
+    padding: 4px 0;
+}
+
+/* Translation Box */
+.quran-translation-box {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Reflection / Tadabbur Box */
+.quran-reflection-box {
+    background: var(--inner-box-bg);
+    border: 1px solid rgba(197, 168, 105, 0.3);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.reflection-icon {
+    color: var(--gold-primary);
+    font-size: 15px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.reflection-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+}

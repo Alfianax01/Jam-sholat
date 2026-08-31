@@ -1,0 +1,125 @@
+<main class="clock-card">
+    <!-- Left Side: Artisan Analog Dial -->
+    <section class="analog-panel">
+        <div class="analog-clock-wrapper">
+            <div class="analog-clock" id="analogClock">
+                <div class="clock-outer-glow"></div>
+                <div class="clock-bezel">
+                    <div class="clock-face">
+                        <div class="islamic-dial-star"></div>
+                        <div class="islamic-inner-ring"></div>
+
+                        <!-- Hour Markers -->
+                        <span class="num-marker num-12" id="marker12">12</span>
+                        <span class="num-marker num-3" id="marker3">3</span>
+                        <span class="num-marker num-6" id="marker6">6</span>
+                        <span class="num-marker num-9" id="marker9">9</span>
+
+                        <!-- Tick marks -->
+                        <div class="ticks-group" id="ticksGroup"></div>
+
+                        <!-- Dial Logo / Arabic Inscription -->
+                        <div class="clock-brand">
+                            <span class="brand-arabic">الْوَقْت</span>
+                            <span class="brand-sub">ISLAMIC PRECISION</span>
+                        </div>
+
+                        <!-- Hands -->
+                        <div class="hand hour-hand" id="hourHand">
+                            <div class="hand-body"></div>
+                        </div>
+                        <div class="hand minute-hand" id="minuteHand">
+                            <div class="hand-body"></div>
+                        </div>
+                        <div class="hand second-hand" id="secondHand">
+                            <div class="hand-body"></div>
+                            <div class="second-crescent-tail">
+                                <i class="fa-solid fa-moon"></i>
+                            </div>
+                        </div>
+
+                        <!-- Center Nut & Gem -->
+                        <div class="center-nut">
+                            <div class="center-gem"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Right Side: Precision Digital Clock & Calendar -->
+    <section class="digital-panel">
+        <div class="digital-box">
+            <div class="digital-time-row">
+                <div class="digit-group">
+                    <div class="digit-card">
+                        <span class="digit-value" id="digitHours">00</span>
+                    </div>
+                    <span class="digit-caption">JAM</span>
+                </div>
+
+                <span class="digit-separator">:</span>
+
+                <div class="digit-group">
+                    <div class="digit-card">
+                        <span class="digit-value" id="digitMinutes">00</span>
+                    </div>
+                    <span class="digit-caption">MENIT</span>
+                </div>
+
+                <span class="digit-separator">:</span>
+
+                <div class="digit-group">
+                    <div class="digit-card second-card">
+                        <span class="digit-value accent" id="digitSeconds">00</span>
+                    </div>
+                    <span class="digit-caption">DETIK</span>
+                </div>
+
+                <div class="period-badge-wrapper">
+                    <div class="period-badge" id="periodBadge">24H</div>
+                </div>
+            </div>
+
+            <!-- Seconds Progress Line -->
+            <div class="progress-track" title="Detik Berjalan">
+                <div class="progress-fill" id="secondProgress"></div>
+            </div>
+        </div>
+
+        <!-- Live Calendar & Astronomical Meta -->
+        <div class="calendar-card">
+            <div class="date-header">
+                <div class="calendar-icon-box">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div class="date-details">
+                    <div class="hijri-headline">
+                        <span class="hijri-badge">HIJRIAH</span>
+                        <span class="hijri-text" id="liveHijriDate">16 Safar 1448 H</span>
+                    </div>
+                    <div class="masehi-text">
+                        <span class="day-name" id="liveDayName">Sabtu</span>,
+                        <span class="full-date" id="liveFullDate">29 Agustus 2026 M</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meta-row">
+                <div class="meta-tag">
+                    <i class="fa-solid fa-kaaba"></i>
+                    <span id="qiblaText">Arah Kiblat: ~295°</span>
+                </div>
+                <div class="meta-tag">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="metaTimezone">Zona: WIB (GMT+7)</span>
+                </div>
+                <div class="meta-tag">
+                    <i class="fa-regular fa-compass"></i>
+                    <span id="metaDayOfYear">Hari ke-241 / 365</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

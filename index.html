@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://api.myquran.com; media-src 'self' blob: data:; img-src 'self' data:;">
+    <title>Al-Waqt • Presisi Waktu & Sholat Islami</title>
+    <!-- Google Fonts: Plus Jakarta Sans, Arabic Amiri, Heading Outfit, Display Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Master Modular Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="green-dark">
+    <!-- Islamic Geometric Pattern Overlay & Ambient Atmosphere -->
+    <div class="islamic-pattern-bg"></div>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <div class="app-container">
+        <!-- 1. BISMILLAH RIBBON -->
+        <div class="bismillah-ribbon">
+            <span class="arabic-bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+        </div>
+
+        <!-- 2. CRAFTED APP HEADER -->
+        <header class="app-header">
+            <!-- Brand Identity -->
+            <div class="brand-identity">
+                <div class="brand-crest">
+                    <i class="fa-solid fa-mosque"></i>
+                </div>
+                <div class="brand-text-group">
+                    <div class="brand-name-row">
+                        <span class="brand-title">AL-WAQT</span>
+                        <span class="brand-arabic-badge">الْوَقْت</span>
+                    </div>
+                    <span class="brand-sub">Presisi Sholat Islami • Kemenag RI</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="header-actions">
+                <!-- Theme Toggle (Light / Dark) -->
+                <button class="header-icon-btn" id="toggleDarkModeBtn" title="Mode Terang / Gelap">
+                    <i class="fa-solid fa-sun" id="modeIcon"></i>
+                </button>
+
+                <!-- Audio Notification Toggle -->
+                <button class="header-icon-btn active" id="toggleAudioBtn" title="Pengingat Adzan Otomatis">
+                    <i class="fa-solid fa-bell" id="audioIcon"></i>
+                </button>
+
+                <!-- Settings Modal Trigger -->
+                <button class="header-icon-btn" id="openSettingsBtn" title="Pengaturan Tampilan & Format">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 3. MAIN DASHBOARD GRID (2-COLUMN ON DESKTOP, 1-COLUMN ON MOBILE) -->
+        <main class="dashboard-grid">
+            <!-- LEFT COLUMN: TIMEPIECE STATION -->
+            <section class="hero-timepiece">
+                <!-- Location & Reciter Chips Row -->
+                <div class="hero-chips-row">
+                    <button class="hero-chip" id="changeCityBtn" title="Pilih Wilayah / Daerah Jadwal Sholat">
+                        <i class="fa-solid fa-location-dot chip-icon"></i>
+                        <span id="currentCityLabel">KOTA JAKARTA</span>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+
+                    <button class="hero-chip reciter-chip" id="changeAdzanBtn" title="Pilih Suara & Muazin Adzan">
+                        <i class="fa-solid fa-microphone-lines chip-icon"></i>
+                        <span id="adzanChoiceLabel">Makkah</span>
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                </div>
+
+                <!-- Analog Watch Dial -->
+                <div class="analog-clock-wrapper">
+                    <div class="analog-clock" id="analogClock">
+                        <div class="clock-bezel">
+                            <div class="clock-face">
+                                <div class="islamic-inner-ring"></div>
+
+                                <!-- Hour Markers -->
+                                <span class="num-marker num-12" id="marker12">12</span>
+                                <span class="num-marker num-3" id="marker3">3</span>
+                                <span class="num-marker num-6" id="marker6">6</span>
+                                <span class="num-marker num-9" id="marker9">9</span>
+
+                                <!-- Dial Ticks (60 Ticks) -->
+                                <div class="ticks-group" id="ticksGroup"></div>
+
+                                <!-- Dial Logo -->
+                                <div class="clock-brand">
+                                    <span class="brand-arabic">الْوَقْت</span>
+                                </div>
+
+                                <!-- Hands -->
+                                <div class="hand hour-hand" id="hourHand"></div>
+                                <div class="hand minute-hand" id="minuteHand"></div>
+                                <div class="hand second-hand" id="secondHand"></div>
+
+                                <!-- Center Pin & Gem -->
+                                <div class="center-nut">
+                                    <div class="center-gem"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Clock & Hijri/Masehi Calendar Card -->
+                <div class="digital-clock-card">
+                    <!-- Digits Row -->
+                    <div class="digital-time-row">
+                        <div class="digit-group">
+                            <div class="digit-card">
+                                <span class="digit-value" id="digitHours">00</span>
+                            </div>
+                            <span class="digit-caption">JAM</span>
+                        </div>
+
+                        <span class="digit-separator">:</span>
+
+                        <div class="digit-group">
+                            <div class="digit-card">
+                                <span class="digit-value" id="digitMinutes">00</span>
+                            </div>
+                            <span class="digit-caption">MENIT</span>
+                        </div>
+
+                        <span class="digit-separator">:</span>
+
+                        <div class="digit-group">
+                            <div class="digit-card second-card">
+                                <span class="digit-value accent" id="digitSeconds">00</span>
+                            </div>
+                            <span class="digit-caption">DETIK</span>
+                        </div>
+
+                        <div class="period-badge-wrapper">
+                            <div class="period-badge" id="periodBadge">24H</div>
+                        </div>
+                    </div>
+
+                    <!-- Calendar Card (Hijri & Masehi) -->
+                    <div class="calendar-card">
+                        <div class="calendar-icon-box">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <div class="date-details">
+                            <div class="hijri-headline">
+                                <span class="hijri-badge">HIJRIAH</span>
+                                <span class="hijri-text" id="liveHijriDate">16 Safar 1448 H</span>
+                            </div>
+                            <div class="masehi-text">
+                                <span class="day-name" id="liveDayName">Sabtu</span>,
+                                <span class="full-date" id="liveFullDate">29 Agustus 2026 M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Qibla Pill (Tap to open Compass) -->
+                <button class="qibla-pill-btn" id="openQiblaBtn" title="Buka Kompas Arah Kiblat Interaktif">
+                    <i class="fa-solid fa-compass"></i>
+                    <span id="qiblaText">Arah Kiblat: ~295.1° (Buka Kompas)</span>
+                </button>
+            </section>
+
+            <!-- RIGHT COLUMN: MAIN SPIRITUAL & SCHEDULE STATION -->
+            <div class="dashboard-main-content">
+                <!-- 1. ISLAMIC MILESTONES (RAMADHAN & IDUL FITRI COUNTDOWNS) -->
+                <section class="events-countdown-section">
+                    <div class="countdown-card ramadhan-card">
+                        <div class="event-icon-box">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-tag">BULAN SUCI • AWAL PUASA</div>
+                            <h4 class="event-title" id="ramadhanTitle">1 Ramadhan 1448 H</h4>
+                            <div class="event-masehi-row">
+                                <i class="fa-regular fa-calendar-check"></i>
+                                <span id="ramadhanMasehiDate">Estimasi: ~8 - 9 Februari 2027</span>
+                            </div>
+                            <span class="event-note">Penetapan via Sidang Isbat Kemenag RI & Ormas</span>
+                        </div>
+                        <div class="event-counter-box">
+                            <div class="counter-number" id="ramadhanDaysCount">--</div>
+                            <div class="counter-unit">HARI LAGI</div>
+                        </div>
+                    </div>
+
+                    <div class="countdown-card idulfitri-card">
+                        <div class="event-icon-box">
+                            <i class="fa-solid fa-star-and-crescent"></i>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-tag">HARI RAYA • 1 SYAWAL</div>
+                            <h4 class="event-title" id="idulFitriTitle">Idul Fitri (1 Syawal 1448 H)</h4>
+                            <div class="event-masehi-row">
+                                <i class="fa-regular fa-calendar-check"></i>
+                                <span id="idulFitriMasehiDate">Estimasi: ~10 - 11 Maret 2027</span>
+                            </div>
+                            <span class="event-note">Penetapan via Sidang Isbat Kemenag RI & Ormas</span>
+                        </div>
+                        <div class="event-counter-box">
+                            <div class="counter-number" id="idulFitriDaysCount">--</div>
+                            <div class="counter-unit">HARI LAGI</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. PRAYER SCHEDULE & NEXT PRAYER SECTION -->
+                <section class="prayer-section">
+                    <div class="prayer-header">
+                        <div class="prayer-title-group">
+                            <div class="prayer-title-icon">
+                                <i class="fa-solid fa-mosque"></i>
+                            </div>
+                            <div class="prayer-title-text">
+                                <div class="prayer-title-badge">KEMENAG RI</div>
+                                <h3 class="prayer-title">Jadwal Sholat Hari Ini</h3>
+                            </div>
+                        </div>
+
+                        <!-- Next Prayer Live Countdown Pill -->
+                        <div class="next-prayer-banner" id="nextPrayerBanner">
+                            <div class="next-prayer-info">
+                                <span class="next-prayer-name" id="nextPrayerName">-</span>
+                            </div>
+                            <div class="next-prayer-timer" id="nextPrayerTimer">--:--:--</div>
+                        </div>
+                    </div>
+
+                    <!-- 8-Prayer Grid (4x2 Matrix) -->
+                    <div class="prayer-grid" id="prayerGrid">
+                        <div class="prayer-card" data-prayer="imsak">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-cloud-moon"></i></div>
+                            <span class="prayer-arabic">الإمساك</span>
+                            <span class="prayer-name">Imsak</span>
+                            <span class="prayer-time" id="timeImsak">--:--</span>
+                        </div>
+                        <div class="prayer-card" data-prayer="subuh">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-sun"></i></div>
+                            <span class="prayer-arabic">الفجر</span>
+                            <span class="prayer-name">Subuh</span>
+                            <span class="prayer-time" id="timeSubuh">--:--</span>
+                        </div>
+                        <div class="prayer-card" data-prayer="terbit">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                            <span class="prayer-arabic">الشروق</span>
+                            <span class="prayer-name">Terbit</span>
+                            <span class="prayer-time" id="timeTerbit">--:--</span>
+                        </div>
+                        <div class="prayer-card" data-prayer="dhuha">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-sun-plant-wilt"></i></div>
+                            <span class="prayer-arabic">الضحى</span>
+                            <span class="prayer-name">Dhuha</span>
+                            <span class="prayer-time" id="timeDhuha">--:--</span>
+                        </div>
+                        <div class="prayer-card" data-prayer="dzuhur">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-sun"></i></div>
+                            <span class="prayer-arabic">الظهر</span>
+                            <span class="prayer-name">Dzuhur</span>
+                            <span class="prayer-time" id="timeDzuhur">--:--</span>
+                        </div>
+                        <div class="prayer-card" data-prayer="ashar">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+                            <span class="prayer-arabic">العصر</span>
+                            <span class="prayer-name">Ashar</span>
+                            <span class="prayer-time" id="timeAshar">--:--</span>
+                        </div>
+                        <div class="prayer-card" data-prayer="maghrib">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                            <span class="prayer-arabic">المغرب</span>
+                            <span class="prayer-name">Maghrib</span>
+                            <span class="prayer-time" id="timeMaghrib">--:--</span>
+                        </div>
+                        <div class="prayer-card" data-prayer="isya">
+                            <div class="prayer-card-icon"><i class="fa-solid fa-moon"></i></div>
+                            <span class="prayer-arabic">العشاء</span>
+                            <span class="prayer-name">Isya</span>
+                            <span class="prayer-time" id="timeIsya">--:--</span>
+                        </div>
+                    </div>
+
+                    <!-- Prayer Footer -->
+                    <div class="prayer-footer">
+                        <div class="location-status">
+                            <i class="fa-solid fa-map-pin"></i>
+                            <span>Lokasi: <strong id="locationDetailText">KOTA JAKARTA</strong></span>
+                        </div>
+                        <button class="btn-refresh" id="refreshPrayerBtn" title="Sinkronisasi Ulang Jadwal">
+                            <i class="fa-solid fa-rotate"></i> Refresh
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 3. DAILY QURAN VERSE CARD -->
+                <section class="quran-quote-card">
+                    <div class="quran-quote-header">
+                        <span class="quote-topic-badge" id="quoteTopicBadge">HARI KE-1 • KEMUDAHAN</span>
+                        <button class="btn-new-verse" id="newVerseBtn" title="Ganti Ayat Motivasi Lain">
+                            <i class="fa-solid fa-shuffle"></i> Lainnya
+                        </button>
+                    </div>
+
+                    <span class="quran-surah-name" id="quranSurahName">QS. Al-Insyirah: 5-6</span>
+
+                    <div class="quran-arabic-box" id="quranArabicText">
+                        فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا
+                    </div>
+
+                    <div class="quran-translation-box" id="quranTranslationText">
+                        "Maka sesungguhnya beserta kesulitan ada kemudahan, sesungguhnya beserta kesulitan itu ada kemudahan."
+                    </div>
+
+                    <div class="quran-reflection-box" id="quranReflectionBox">
+                        <i class="fa-regular fa-heart reflection-icon"></i>
+                        <span class="reflection-text" id="quranReflectionText">
+                            Yakinlah bahwa setiap kesulitan dan ujian hidup selalu dipaketkan oleh Allah dengan jalan keluar dan kemudahan.
+                        </span>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- App Footer -->
+        <footer class="app-footer">
+            <p>Al-Waqt • Presisi Waktu & Sholat Islami • Kemenag RI</p>
+        </footer>
+    </div>
+
+    <!-- 4. HIERARCHICAL CITY & REGION SELECTOR MODAL -->
+    <div class="modal-overlay" id="cityModal">
+        <div class="modal-card">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-title-box">
+                    <i class="fa-solid fa-location-dot modal-title-icon"></i>
+                    <h3>Pilih Wilayah / Daerah</h3>
+                </div>
+                <button class="modal-close" id="closeCityModalBtn">&times;</button>
+            </div>
+
+            <!-- Global Search Box -->
+            <div class="modal-search-wrapper">
+                <div class="modal-search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="citySearchInput" placeholder="Cari nama kota/kabupaten/kecamatan..." autocomplete="off">
+                </div>
+            </div>
+
+            <!-- Breadcrumb Navigation Bar (Visible in District View) -->
+            <div class="modal-breadcrumb-bar" id="modalBreadcrumb">
+                <button class="btn-breadcrumb-back" id="btnBreadcrumbBack">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Kota
+                </button>
+                <span class="breadcrumb-trail" id="breadcrumbCurrent">Jakarta Timur</span>
+            </div>
+
+            <!-- Region Filter Tabs -->
+            <div class="region-tabs-row" id="regionTabsRow">
+                <button class="region-tab-btn active" data-tab="all">🌐 Semua</button>
+                <button class="region-tab-btn" data-tab="jakarta">🏙️ Jakarta</button>
+                <button class="region-tab-btn" data-tab="bodetabek">🏘️ Bodetabek</button>
+                <button class="region-tab-btn" data-tab="jawa_luar">🗺️ Lainnya</button>
+            </div>
+
+            <!-- Dynamic City & District List -->
+            <div class="city-list" id="cityList">
+                <div class="city-list-loading">
+                    <i class="fa-solid fa-spinner fa-spin"></i> Memuat wilayah...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. ADZAN RECITER SELECTOR MODAL -->
+    <div class="modal-overlay" id="adzanModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-box">
+                    <i class="fa-solid fa-microphone-lines modal-title-icon"></i>
+                    <h3>Pilihan Suara & Muazin Adzan</h3>
+                </div>
+                <button class="modal-close" id="closeAdzanModalBtn">&times;</button>
+            </div>
+
+            <div class="adzan-modal-body">
+                <!-- Special Subuh Notice Banner -->
+                <div class="subuh-special-banner">
+                    <div class="subuh-special-icon">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <div class="subuh-special-info">
+                        <span class="subuh-special-badge">KHUSUS WAKTU SUBUH (OTOMATIS)</span>
+                        <span class="subuh-special-title">Tatswib: Ash-Shalatu Khairum Minan-Naum</span>
+                        <span class="subuh-special-desc">Lafadz khusus Subuh otomatis berkumandang saat waktu Subuh.</span>
+                    </div>
+                    <button class="btn-preview-subuh" id="btnPreviewSubuh" title="Tes Suara Adzan Subuh">
+                        <i class="fa-solid fa-play"></i> Tes
+                    </button>
+                </div>
+
+                <span class="adzan-list-title">Pilihan Muazin Sholat Reguler:</span>
+                
+                <div class="adzan-list" id="adzanList">
+                    <!-- Injected dynamically by adzanModal.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. PREFERENCES & SETTINGS MODAL -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-box">
+                    <i class="fa-solid fa-gear modal-title-icon"></i>
+                    <h3>Pengaturan</h3>
+                </div>
+                <button class="modal-close" id="closeSettingsModalBtn">&times;</button>
+            </div>
+
+            <div class="settings-modal-body">
+                <!-- Format Waktu -->
+                <div class="settings-row">
+                    <div class="settings-row-left">
+                        <div class="settings-icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div class="settings-info">
+                            <span class="settings-title">Format Waktu Jam</span>
+                            <span class="settings-desc">Tampilan 24 Jam atau 12 Jam (AM/PM)</span>
+                        </div>
+                    </div>
+                    <div class="segmented-switch">
+                        <button class="segment-btn active" id="btnFormat24">24 Jam</button>
+                        <button class="segment-btn" id="btnFormat12">12 Jam</button>
+                    </div>
+                </div>
+
+                <!-- Angka Jam (Latin / Arab) -->
+                <div class="settings-row">
+                    <div class="settings-row-left">
+                        <div class="settings-icon">
+                            <span style="font-family: var(--font-arabic); font-size: 1.15rem; font-weight: 700;">١٢</span>
+                        </div>
+                        <div class="settings-info">
+                            <span class="settings-title">Angka Jam & Hitungan</span>
+                            <span class="settings-desc">Angka Latin (1, 2, 3) atau Arab (١, ٢, ٣)</span>
+                        </div>
+                    </div>
+                    <div class="segmented-switch">
+                        <button class="segment-btn active" id="btnNumeralLatin">Latin</button>
+                        <button class="segment-btn" id="btnNumeralArabic">Arab</button>
+                    </div>
+                </div>
+
+                <!-- Gerakan Jarum (Smooth / Detak) -->
+                <div class="settings-row">
+                    <div class="settings-row-left">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                        <div class="settings-info">
+                            <span class="settings-title">Gerakan Jarum Detik</span>
+                            <span class="settings-desc">Meluncur halus (Smooth) atau berdetak</span>
+                        </div>
+                    </div>
+                    <div class="segmented-switch">
+                        <button class="segment-btn active" id="btnSmoothSweep">Halus</button>
+                        <button class="segment-btn" id="btnSmoothTick">Detak</button>
+                    </div>
+                </div>
+
+                <!-- Kompas Arah Kiblat -->
+                <div class="settings-row">
+                    <div class="settings-row-left">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div class="settings-info">
+                            <span class="settings-title">Kompas Arah Kiblat</span>
+                            <span class="settings-desc">Buka instrumen kompas digital & derajat Ka'bah</span>
+                        </div>
+                    </div>
+                    <button class="settings-action-btn" id="settingsQiblaBtn">
+                        <i class="fa-solid fa-compass"></i> Buka Kompas
+                    </button>
+                </div>
+
+                <!-- Tes Kumandang Adzan -->
+                <div class="settings-row">
+                    <div class="settings-row-left">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+                        <div class="settings-info">
+                            <span class="settings-title">Tes Audio Adzan</span>
+                            <span class="settings-desc">Uji coba putar audio adzan asli</span>
+                        </div>
+                    </div>
+                    <button class="settings-action-btn" id="testAdzanBtn">
+                        <i class="fa-solid fa-play" id="testAdzanIcon"></i>
+                        <span id="testAdzanLabel">Putar Tes</span>
+                    </button>
+                </div>
+
+                <!-- Layar Penuh (Fullscreen) -->
+                <div class="settings-row">
+                    <div class="settings-row-left">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                        <div class="settings-info">
+                            <span class="settings-title">Mode Layar Penuh</span>
+                            <span class="settings-desc">Tampilan penuh tanpa gangguan browser</span>
+                        </div>
+                    </div>
+                    <button class="settings-action-btn" id="fullscreenBtn">
+                        <i class="fa-solid fa-expand" id="fullscreenIcon"></i> Fullscreen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. INTERACTIVE QIBLA COMPASS MODAL -->
+    <div class="modal-overlay" id="qiblaModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title-box">
+                    <i class="fa-solid fa-compass modal-title-icon"></i>
+                    <h3>Kompas Arah Kiblat</h3>
+                </div>
+                <button class="modal-close" id="closeQiblaModalBtn">&times;</button>
+            </div>
+
+            <div class="qibla-modal-body">
+                <!-- Angle & Distance Readouts -->
+                <div class="qibla-readout-grid">
+                    <div class="qibla-readout-card">
+                        <span class="qibla-readout-label">Derajat Arah Kiblat</span>
+                        <span class="qibla-readout-val accent" id="qiblaAngleVal">295.1°</span>
+                    </div>
+                    <div class="qibla-readout-card">
+                        <span class="qibla-readout-label">Jarak ke Ka'bah</span>
+                        <span class="qibla-readout-val" id="qiblaDistVal">~7.925 km</span>
+                    </div>
+                </div>
+
+                <!-- Live Compass Viewport & Needle -->
+                <div class="compass-viewport">
+                    <div class="compass-bezel">
+                        <div class="compass-dial" id="compassDial">
+                            <div class="compass-inner-ring"></div>
+                            
+                            <!-- Cardinal Direction Markers -->
+                            <span class="compass-cardinal compass-north">U</span>
+                            <span class="compass-cardinal compass-east">T</span>
+                            <span class="compass-cardinal compass-south">S</span>
+                            <span class="compass-cardinal compass-west">B</span>
+
+                            <!-- Center Nut -->
+                            <div class="compass-center-nut">
+                                <div class="compass-center-gem"></div>
+                            </div>
+                        </div>
+
+                        <!-- Needle pointing to Kaaba -->
+                        <div class="qibla-needle" id="qiblaNeedle">
+                            <div class="qibla-kaaba-badge" title="Arah Ka'bah (Makkah)">
+                                <i class="fa-solid fa-kaaba"></i>
+                            </div>
+                            <div class="qibla-needle-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alignment Status Banner -->
+                <div class="qibla-status-badge static" id="qiblaStatusBadge">
+                    <i class="fa-solid fa-compass"></i> Arah Kiblat: ~295.1° Barat Laut
+                </div>
+
+                <!-- Footer & GPS Precision Tool -->
+                <div class="qibla-footer-row">
+                    <div class="qibla-location-info">
+                        <i class="fa-solid fa-map-pin"></i>
+                        <span id="qiblaLocationLabel">KOTA JAKARTA</span>
+                    </div>
+                    <button class="btn-detect-gps" id="btnDetectGPS" title="Gunakan GPS Presisi">
+                        <i class="fa-solid fa-location-crosshairs"></i> Deteksi GPS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. REAL ADZAN NOTIFICATION BANNER -->
+    <div class="adzan-banner" id="adzanBanner">
+        <div class="adzan-banner-content">
+            <div class="adzan-banner-icon">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+            <div class="adzan-banner-text">
+                <div class="adzan-status-row">
+                    <span class="adzan-banner-sub">WAKTU SHOLAT TELAH TIBA</span>
+                </div>
+                <h4 class="adzan-banner-title" id="adzanBannerTitle">Adzan Dzuhur</h4>
+            </div>
+            <div class="adzan-actions">
+                <button class="btn-stop-adzan" id="stopAdzanBtn" title="Hentikan Suara Adzan">
+                    <i class="fa-solid fa-stop"></i> Hentikan
+                </button>
+                <button class="adzan-banner-close" id="closeAdzanBannerBtn" title="Tutup">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element for Real Adzan -->
+    <audio id="realAdzanAudio" preload="auto"></audio>
+
+    <!-- Modular JavaScript Engine -->
+    <script src="js/constants.js"></script>
+    <script src="js/subdistrictsData.js"></script>
+    <script src="js/quranData.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/qibla.js"></script>
+    <script src="js/prayerApi.js"></script>
+    <script src="js/cityModal.js"></script>
+    <script src="js/adzanModal.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

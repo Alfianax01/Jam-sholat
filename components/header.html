@@ -1,0 +1,59 @@
+<header class="app-header">
+    <!-- Brand Identity -->
+    <div class="brand-identity">
+        <div class="brand-crest">
+            <i class="fa-solid fa-mosque"></i>
+        </div>
+        <div class="brand-text-group">
+            <div class="brand-name-row">
+                <span class="brand-title">ALFIAN</span>
+                <span class="brand-arabic-badge">الْوَقْت</span>
+            </div>
+            <span class="brand-sub">Presisi Waktu & Jadwal Sholat</span>
+        </div>
+    </div>
+
+    <!-- Desktop Action Chips & Quick Controls -->
+    <div class="header-actions desktop-controls">
+        <!-- Location Chip -->
+        <button class="header-chip" id="changeCityBtn" title="Pilih Wilayah / Daerah Jadwal Sholat">
+            <i class="fa-solid fa-location-dot chip-icon"></i>
+            <span id="currentCityLabel">KOTA JAKARTA</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+        </button>
+
+        <!-- Adzan Reciter Chip -->
+        <button class="header-chip" id="changeAdzanBtn" title="Pilih Suara & Muazin Adzan">
+            <i class="fa-solid fa-microphone-lines chip-icon"></i>
+            <span id="adzanChoiceLabel">Makkah</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+        </button>
+
+        <!-- Audio Notification Toggle -->
+        <button class="header-icon-btn active" id="toggleAudioBtn" title="Pengingat Adzan Otomatis">
+            <i class="fa-solid fa-bell" id="audioIcon"></i>
+        </button>
+
+        <!-- Theme Toggle (Light / Dark) -->
+        <button class="header-icon-btn" id="toggleDarkModeBtn" title="Mode Terang / Gelap">
+            <i class="fa-solid fa-moon" id="modeIcon"></i>
+        </button>
+
+        <!-- Settings Modal Trigger -->
+        <button class="header-icon-btn" id="openSettingsBtn" title="Pengaturan Tampilan & Format">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Quick Actions & Hamburger Drawer Trigger -->
+    <div class="mobile-header-actions">
+        <button class="header-icon-btn" id="mobileQuickDarkBtn" title="Ganti Mode Terang / Gelap">
+            <i class="fa-solid fa-moon" id="mobileModeIcon"></i>
+        </button>
+        <button class="btn-hamburger" id="mobileMenuBtn" aria-label="Buka Menu Navigasi">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+    </div>
+</header>

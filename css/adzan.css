@@ -1,0 +1,132 @@
+/* =========================================================
+   ADZAN.CSS - Live Floating Adzan Notification Banner
+   Exact Port from Flutter _buildAdzanBanner Architecture
+   ========================================================= */
+
+.adzan-banner {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--emerald-primary);
+    border-radius: 18px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 20px var(--emerald-glow);
+    z-index: 4000;
+    display: none;
+    animation: slideUpAdzan 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.adzan-banner.show {
+    display: block;
+}
+
+@keyframes slideUpAdzan {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.adzan-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.adzan-banner-icon {
+    font-size: 22px;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    animation: pulseIcon 1.5s infinite;
+}
+
+@keyframes pulseIcon {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.adzan-banner-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+}
+
+.adzan-status-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.adzan-banner-sub {
+    font-size: 9px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.adzan-banner-title {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Actions */
+.adzan-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn-stop-adzan {
+    background: #FFFFFF;
+    color: var(--emerald-primary);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-family: var(--font-main);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+.btn-stop-adzan:hover {
+    transform: scale(1.03);
+    background: #F0FDF4;
+}
+
+.adzan-banner-close {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.adzan-banner-close:hover {
+    color: #FFFFFF;
+}

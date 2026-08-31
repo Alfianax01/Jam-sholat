@@ -1,0 +1,176 @@
+/* =========================================================
+   EVENTS.CSS - Islamic Calendar Milestones (Ramadhan & Idul Fitri)
+   Responsive 2-Column Grid on Desktop / Tablet with Official Notes
+   ========================================================= */
+
+.events-countdown-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+}
+
+.countdown-card {
+    border-radius: 20px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid transparent;
+}
+
+.countdown-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-elevated);
+}
+
+.ramadhan-card {
+    background: var(--event-ramadhan-bg);
+    border-color: var(--event-ramadhan-border);
+}
+
+.idulfitri-card {
+    background: var(--event-idulfitri-bg);
+    border-color: var(--event-idulfitri-border);
+}
+
+.event-icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.ramadhan-card .event-icon-box {
+    background: var(--emerald-primary);
+    box-shadow: 0 4px 14px var(--emerald-glow);
+}
+
+.idulfitri-card .event-icon-box {
+    background: var(--gold-deep);
+    box-shadow: 0 4px 14px var(--gold-glow);
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.event-tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.ramadhan-card .event-tag {
+    color: var(--emerald-primary);
+}
+
+.idulfitri-card .event-tag {
+    color: var(--event-idulfitri-accent);
+}
+
+.event-title {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-masehi-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-masehi-row i {
+    font-size: 12px;
+}
+
+.ramadhan-card .event-masehi-row i {
+    color: var(--emerald-primary);
+}
+
+.idulfitri-card .event-masehi-row i {
+    color: var(--event-idulfitri-accent);
+}
+
+.event-note {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-counter-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 8px 14px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+}
+
+.ramadhan-card .event-counter-box {
+    border-color: rgba(13, 92, 58, 0.25);
+}
+
+.idulfitri-card .event-counter-box {
+    border-color: rgba(197, 168, 105, 0.3);
+}
+
+.counter-number {
+    font-family: var(--font-main);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.ramadhan-card .counter-number {
+    color: var(--emerald-primary);
+}
+
+.idulfitri-card .counter-number {
+    color: var(--event-idulfitri-accent);
+}
+
+.counter-unit {
+    font-size: 8px;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}

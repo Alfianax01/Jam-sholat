@@ -1,0 +1,165 @@
+/* =========================================================
+   VARIABLES.CSS - Al-Waqt Luxury Islamic Design Tokens
+   Responsive Architecture for Desktop & Mobile
+   ========================================================= */
+
+:root {
+    --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Orbitron', monospace;
+    --font-heading: 'Outfit', sans-serif;
+    --font-arabic: 'Amiri', 'Scheherazade New', serif;
+    --font-cinzel: 'Cinzel', serif;
+
+    --clock-size: 240px;
+    --transition-theme: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================================
+   1. LIGHT THEME (Opal Ivory & Emerald Light - Flutter AppColors)
+   ========================================================= */
+body, body[data-theme="green-white-light"] {
+    --bg-base: #F4F8F5;
+    --pattern-color: rgba(13, 92, 58, 0.045);
+    
+    --card-bg: #FFFFFF;
+    --card-bg-subtle: #F9FCFA;
+    --card-border: #D6E6DC;
+    --card-border-hover: #A3D4B8;
+    --card-shadow: 0 10px 30px rgba(10, 38, 24, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+    --card-shadow-elevated: 0 18px 45px rgba(10, 38, 24, 0.09), 0 4px 12px rgba(0, 0, 0, 0.03);
+    
+    --emerald-primary: #0D5C3A;
+    --emerald-deep: #093E27;
+    --emerald-light: #EBF3EE;
+    --emerald-glow: rgba(13, 92, 58, 0.18);
+    
+    --gold-primary: #C5A869;
+    --gold-deep: #B8860B;
+    --gold-light: #FEF9E7;
+    --gold-glow: rgba(197, 168, 105, 0.25);
+
+    --text-primary: #0A2618;
+    --text-secondary: #2C5E43;
+    --text-muted: #5A7D6A;
+    
+    --hand-color: #0A2618;
+    --hand-gold: #C5A869;
+    --second-hand-red: #E11D48;
+    --second-glow: rgba(225, 29, 72, 0.35);
+    
+    --bezel-bg: #FFFFFF;
+    --bezel-rim: #C5A869;
+    --face-bg: #F9FCFA;
+    
+    --inner-box-bg: #EBF3EE;
+    --inner-box-border: #D6E6DC;
+    
+    --digit-bg: #EBF3EE;
+    --digit-card-border: #D6E6DC;
+    --digit-card-shadow: 0 2px 8px rgba(13, 92, 58, 0.05);
+    
+    --chip-bg: #EBF3EE;
+    --chip-border: #D6E6DC;
+    --chip-hover-bg: #DFEEE5;
+    --chip-color: #0D5C3A;
+    
+    --active-prayer-bg: rgba(13, 92, 58, 0.12);
+    --active-prayer-border: #0D5C3A;
+    
+    --event-ramadhan-bg: #E9F5EF;
+    --event-ramadhan-border: rgba(13, 92, 58, 0.35);
+    --event-ramadhan-accent: #0D5C3A;
+    
+    --event-idulfitri-bg: #FDF7E7;
+    --event-idulfitri-border: rgba(184, 134, 11, 0.35);
+    --event-idulfitri-accent: #B8860B;
+    
+    --glow-color-1: rgba(13, 92, 58, 0.08);
+    --glow-color-2: rgba(197, 168, 105, 0.08);
+    --glow-color-3: rgba(13, 92, 58, 0.06);
+
+    /* Direct Aliases for Modals & Components */
+    --accent: var(--emerald-primary);
+    --accent-secondary: #128052;
+    --accent-light: var(--emerald-light);
+    --accent-glow: var(--emerald-glow);
+    --gold: var(--gold-primary);
+    --second-hand: var(--second-hand-red);
+}
+
+/* =========================================================
+   2. DARK THEME (Obsidian Jade - Flutter AppColors)
+   ========================================================= */
+body[data-theme="green-dark"],
+body[data-theme="dark"] {
+    --bg-base: #06110B;
+    --pattern-color: rgba(16, 185, 129, 0.035);
+    
+    --card-bg: #0D1F16;
+    --card-bg-subtle: #10261C;
+    --card-border: #1E3D2D;
+    --card-border-hover: rgba(16, 185, 129, 0.4);
+    --card-shadow: 0 16px 45px rgba(0, 0, 0, 0.55);
+    --card-shadow-elevated: 0 24px 60px rgba(0, 0, 0, 0.75);
+    
+    --emerald-primary: #10B981;
+    --emerald-deep: #059669;
+    --emerald-light: rgba(16, 185, 129, 0.15);
+    --emerald-glow: rgba(16, 185, 129, 0.3);
+    
+    --gold-primary: #C5A869;
+    --gold-deep: #F1C40F;
+    --gold-light: rgba(241, 196, 15, 0.12);
+    --gold-glow: rgba(241, 196, 15, 0.25);
+
+    --text-primary: #F0FDF4;
+    --text-secondary: #A7D7BE;
+    --text-muted: #6B9980;
+    
+    --hand-color: #F0FDF4;
+    --hand-gold: #C5A869;
+    --second-hand-red: #E11D48;
+    --second-glow: rgba(225, 29, 72, 0.45);
+    
+    --bezel-bg: #132B20;
+    --bezel-rim: #C5A869;
+    --face-bg: #091710;
+    
+    --inner-box-bg: #132B20;
+    --inner-box-border: #1E3D2D;
+    
+    --digit-bg: #132B20;
+    --digit-card-border: #1E3D2D;
+    --digit-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    
+    --chip-bg: #132B20;
+    --chip-border: #1E3D2D;
+    --chip-hover-bg: #1A392B;
+    --chip-color: #A7D7BE;
+    
+    --active-prayer-bg: rgba(16, 185, 129, 0.15);
+    --active-prayer-border: #10B981;
+    
+    --event-ramadhan-bg: #0F291C;
+    --event-ramadhan-border: rgba(16, 185, 129, 0.35);
+    --event-ramadhan-accent: #10B981;
+    
+    --event-idulfitri-bg: #262011;
+    --event-idulfitri-border: rgba(197, 168, 105, 0.35);
+    --event-idulfitri-accent: #C5A869;
+    
+    --glow-color-1: rgba(16, 185, 129, 0.12);
+    --glow-color-2: rgba(197, 168, 105, 0.08);
+    --glow-color-3: rgba(16, 185, 129, 0.06);
+
+    /* Direct Aliases for Modals & Components */
+    --accent: var(--emerald-primary);
+    --accent-secondary: #34d399;
+    --accent-light: var(--emerald-light);
+    --accent-glow: var(--emerald-glow);
+    --gold: var(--gold-primary);
+    --second-hand: var(--second-hand-red);
+}

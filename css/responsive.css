@@ -1,0 +1,149 @@
+/* =========================================================
+   RESPONSIVE.CSS - Desktop, Tablet & Mobile Breakpoints
+   ========================================================= */
+
+/* --- TABLETS & SMALL LAPTOPS (<= 992px) --- */
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 340px 1fr;
+        gap: 16px;
+    }
+
+    :root {
+        --clock-size: 220px;
+    }
+}
+
+/* --- TABLETS / VERTICAL COLLAPSE (<= 860px) --- */
+@media (max-width: 860px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .hero-timepiece {
+        position: static;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .events-countdown-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- STANDARD SMARTPHONES (<= 680px) --- */
+@media (max-width: 680px) {
+    :root {
+        --clock-size: 210px;
+    }
+
+    body {
+        padding: max(12px, env(safe-area-inset-top)) 12px max(24px, env(safe-area-inset-bottom)) 12px;
+    }
+
+    .app-container {
+        gap: 12px;
+    }
+
+    .app-header {
+        padding: 10px 14px;
+        border-radius: 18px;
+    }
+
+    .brand-title {
+        font-size: 13px;
+    }
+
+    .hero-timepiece {
+        padding: 14px;
+        border-radius: 20px;
+    }
+
+    .events-countdown-section {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .countdown-card {
+        padding: 12px 14px;
+    }
+
+    .digital-clock-card {
+        padding: 12px;
+    }
+
+    .digit-card {
+        min-width: 42px;
+        padding: 6px 7px;
+    }
+
+    .digit-value {
+        font-size: 20px;
+    }
+
+    .digit-separator {
+        font-size: 20px;
+    }
+
+    .prayer-section {
+        padding: 14px;
+        border-radius: 20px;
+    }
+
+    .prayer-grid {
+        gap: 6px;
+    }
+
+    .prayer-card {
+        padding: 8px 2px;
+        border-radius: 12px;
+    }
+
+    .prayer-time {
+        font-size: 13px;
+    }
+
+    .quran-quote-card {
+        padding: 16px;
+        border-radius: 20px;
+    }
+}
+
+/* --- SMALL MOBILES (<= 420px) --- */
+@media (max-width: 420px) {
+    :root {
+        --clock-size: 190px;
+    }
+
+    .hero-chips-row {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .hero-chip.reciter-chip {
+        min-width: 100%;
+    }
+
+    .prayer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+
+    .prayer-card {
+        padding: 10px 6px;
+    }
+
+    .digit-card {
+        min-width: 36px;
+        padding: 5px 6px;
+    }
+
+    .digit-value {
+        font-size: 18px;
+    }
+
+    .digit-separator {
+        font-size: 18px;
+    }
+}
