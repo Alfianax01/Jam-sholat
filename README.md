@@ -33,6 +33,33 @@ Tersedia dalam 2 platform:
 
 ---
 
+## 🌐 Sumber Data & API (Data Sources)
+
+Aplikasi ini menggunakan integrasi data resmi & algoritma astronomis presisi:
+
+### 1. API Jadwal Sholat & Kalender Hijriah
+* **Penyedia API**: [MyQuran API v2 (API Muslim)](https://api.myquran.com)
+* **Sumber Data Asli**: **Bimas Islam Kementerian Agama Republik Indonesia (Kemenag RI)**.
+* **Endpoint yang Digunakan**:
+  * Daftar Semua Kota/Kabupaten: `GET https://api.myquran.com/v2/sholat/kabkota/semua`
+  * Cari Kota/Wilayah: `GET https://api.myquran.com/v2/sholat/kabkota/cari/{nama_kota}`
+  * Jadwal Sholat Harian: `GET https://api.myquran.com/v2/sholat/jadwal/{id_kota}/{tahun}/{bulan}/{tanggal}`
+  * Tanggal Hijriah: `GET https://api.myquran.com/v2/cal/today?tz=Asia%2FJakarta`
+
+### 2. Perhitungan Arah Kiblat (Qibla Geodesic Calculation)
+* **Metode**: Trigonometri Bola (*Great-Circle Navigation / Forward Azimuth Formula*).
+* **Titik Koordinat Ka'bah (Makkah)**:
+  * Latitude ($\phi_2$): `21.422487° N`
+  * Longitude ($\lambda_2$): `39.826206° E`
+* **Rumus Azimut Kiblat**:
+  $$\theta = \text{atan2}\left(\sin(\Delta \lambda), \cos(\phi_1)\tan(\phi_2) - \sin(\phi_1)\cos(\Delta \lambda)\right)$$
+
+### 3. Database Ayat Harian & Audio Adzan (Lokal / Offline)
+* **Inspirasi Al-Qur'an**: 31 Ayat tematik harian dari Mushaf Standar Indonesia & Terjemahan Kemenag RI.
+* **Audio Muazin**: Audio adzan berkualitas tinggi dari Makkah, Madinah, Mesir, Turki, dan Subuh Tatswib.
+
+---
+
 ## 🚀 Cara Menjalankan
 
 ### 1. Web Version
@@ -58,4 +85,3 @@ flutter build apk --release
 
 ## 📜 Lisensi
 Open-source di bawah lisensi MIT.
-
