@@ -161,6 +161,8 @@ class SettingsBottomSheet extends StatelessWidget {
                 }
               },
             ),
+          ),
+
           const SizedBox(height: 8),
 
           // 6. Tentang Al-Waqt (About)
