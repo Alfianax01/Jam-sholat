@@ -151,9 +151,9 @@ function updateClock() {
         hoursAngle = ((rawHours % 12) + rawMinutes / 60) * 30;
     }
 
-    if (secondHand) secondHand.style.transform = `rotate(${secondsAngle}deg)`;
-    if (minuteHand) minuteHand.style.transform = `rotate(${minutesAngle}deg)`;
-    if (hourHand) hourHand.style.transform = `rotate(${hoursAngle}deg)`;
+    if (secondHand) secondHand.style.transform = `translateX(-50%) rotate(${secondsAngle}deg)`;
+    if (minuteHand) minuteHand.style.transform = `translateX(-50%) rotate(${minutesAngle}deg)`;
+    if (hourHand) hourHand.style.transform = `translateX(-50%) rotate(${hoursAngle}deg)`;
 
     if (secondProgress) {
         const progressPercent = ((rawSeconds + (state.isSmooth ? ms / 1000 : 0)) / 60) * 100;
