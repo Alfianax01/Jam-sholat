@@ -986,9 +986,42 @@
     text-transform: uppercase;
 }
 
+.qibla-readout-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .qibla-readout-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.qibla-readout-card {
+    background: var(--inner-box-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3px;
+}
+
+.qibla-readout-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
 .qibla-readout-val {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--text-primary);
 }
@@ -1013,12 +1046,35 @@
     inset: 0;
     border-radius: 50%;
     background: var(--bezel-bg);
-    border: 2px solid var(--gold);
+    border: 2.5px solid var(--gold);
     box-shadow: 
         inset 0 2px 6px rgba(255, 255, 255, 0.3),
         0 12px 30px rgba(0, 0, 0, 0.2),
         0 0 20px var(--gold-glow);
     padding: 8px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.compass-bezel.dragging {
+    cursor: grabbing;
+}
+
+/* Top Lubber Line Reference Index (0 deg / Front of Device) */
+.compass-lubber-line {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid var(--second-hand);
+    z-index: 25;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    pointer-events: none;
 }
 
 .compass-dial {
@@ -1028,8 +1084,44 @@
     background: var(--face-bg);
     position: relative;
     border: 1px solid var(--card-border);
-    transition: transform 0.15s ease-out;
+    transition: transform 0.08s ease-out;
     will-change: transform;
+}
+
+/* Compass 360-Degree Ticks */
+.compass-ticks-group {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.compass-tick {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    width: 1px;
+    height: 4px;
+    background: var(--card-border);
+    transform-origin: 50% 113px;
+    border-radius: 1px;
+}
+
+.compass-tick.major {
+    width: 2px;
+    height: 8px;
+    background: var(--gold-primary);
+}
+
+.compass-tick.medium {
+    width: 1.5px;
+    height: 6px;
+    background: var(--text-muted);
+}
+
+.compass-tick.minor {
+    width: 1px;
+    height: 3.5px;
+    opacity: 0.5;
 }
 
 /* Cardinal Directions */
@@ -1044,26 +1136,26 @@
 }
 
 .compass-north {
-    top: 8px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     color: var(--second-hand);
 }
 
 .compass-east {
-    right: 10px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .compass-south {
-    bottom: 8px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .compass-west {
-    left: 10px;
+    left: 12px;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -1087,7 +1179,7 @@
     margin-top: -95px;
     transform-origin: 50% 100%;
     z-index: 10;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.15s ease-out;
     pointer-events: none;
 }
 
@@ -1181,6 +1273,51 @@
 @keyframes alignPulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
+}
+
+/* Qibla Control Action Buttons */
+.qibla-controls-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.btn-qibla-ctrl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 12px;
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid var(--card-border);
+}
+
+.btn-qibla-ctrl.auto-align {
+    background: var(--emerald-primary);
+    color: #FFFFFF;
+    border-color: var(--emerald-primary);
+    box-shadow: 0 3px 10px var(--emerald-glow);
+}
+
+.btn-qibla-ctrl.auto-align:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.btn-qibla-ctrl.reset-north {
+    background: var(--inner-box-bg);
+    color: var(--text-primary);
+}
+
+.btn-qibla-ctrl.reset-north:hover {
+    background: var(--card-bg);
+    border-color: var(--text-primary);
 }
 
 /* Qibla Footer Controls */

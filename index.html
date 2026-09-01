@@ -578,19 +578,28 @@
                 <!-- Angle & Distance Readouts -->
                 <div class="qibla-readout-grid">
                     <div class="qibla-readout-card">
-                        <span class="qibla-readout-label">Derajat Arah Kiblat</span>
+                        <span class="qibla-readout-label">Arah Kiblat Ka'bah</span>
                         <span class="qibla-readout-val accent" id="qiblaAngleVal">295.1°</span>
                     </div>
                     <div class="qibla-readout-card">
-                        <span class="qibla-readout-label">Jarak ke Ka'bah</span>
+                        <span class="qibla-readout-label">Arah Kompas (Heading)</span>
+                        <span class="qibla-readout-val" id="compassHeadingVal">0° (Utara)</span>
+                    </div>
+                    <div class="qibla-readout-card">
+                        <span class="qibla-readout-label">Jarak ke Makkah</span>
                         <span class="qibla-readout-val" id="qiblaDistVal">~7.925 km</span>
                     </div>
                 </div>
 
-                <!-- Live Compass Viewport & Needle -->
+                <!-- Live Interactive Compass Viewport & Dial -->
                 <div class="compass-viewport">
-                    <div class="compass-bezel">
+                    <div class="compass-bezel" id="compassBezel">
+                        <!-- Top Lubber / Index Marker (Front of device) -->
+                        <div class="compass-lubber-line" title="Arah Depan Perangkat"></div>
+
                         <div class="compass-dial" id="compassDial">
+                            <!-- 360 Degree Marks Group -->
+                            <div class="compass-ticks-group" id="compassTicksGroup"></div>
                             <div class="compass-inner-ring"></div>
                             
                             <!-- Cardinal Direction Markers -->
@@ -599,18 +608,18 @@
                             <span class="compass-cardinal compass-south">S</span>
                             <span class="compass-cardinal compass-west">B</span>
 
+                            <!-- Needle pointing to Kaaba (Attached to the compass dial, pointing at Qibla angle from North) -->
+                            <div class="qibla-needle" id="qiblaNeedle">
+                                <div class="qibla-kaaba-badge" title="Arah Ka'bah (Makkah)">
+                                    <i class="fa-solid fa-kaaba"></i>
+                                </div>
+                                <div class="qibla-needle-body"></div>
+                            </div>
+
                             <!-- Center Nut -->
                             <div class="compass-center-nut">
                                 <div class="compass-center-gem"></div>
                             </div>
-                        </div>
-
-                        <!-- Needle pointing to Kaaba -->
-                        <div class="qibla-needle" id="qiblaNeedle">
-                            <div class="qibla-kaaba-badge" title="Arah Ka'bah (Makkah)">
-                                <i class="fa-solid fa-kaaba"></i>
-                            </div>
-                            <div class="qibla-needle-body"></div>
                         </div>
                     </div>
                 </div>
@@ -618,6 +627,16 @@
                 <!-- Alignment Status Banner -->
                 <div class="qibla-status-badge static" id="qiblaStatusBadge">
                     <i class="fa-solid fa-compass"></i> Arah Kiblat: ~295.1° Barat Laut
+                </div>
+
+                <!-- Interactive Compass Action Buttons -->
+                <div class="qibla-controls-row">
+                    <button class="btn-qibla-ctrl auto-align" id="btnAutoAlignQibla" title="Putar Otomatis ke Arah Kiblat">
+                        <i class="fa-solid fa-kaaba"></i> Selaraskan ke Kiblat
+                    </button>
+                    <button class="btn-qibla-ctrl reset-north" id="btnResetNorth" title="Arahkan ke Utara (0°)">
+                        <i class="fa-solid fa-compass"></i> Arahkan Utara
+                    </button>
                 </div>
 
                 <!-- Footer & GPS Precision Tool -->

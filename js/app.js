@@ -385,6 +385,11 @@ function setupEventListeners() {
     }
     if (btnDetectGPS) btnDetectGPS.addEventListener('click', detectCurrentGPSLocation);
     
+    const btnAutoAlignQibla = document.getElementById('btnAutoAlignQibla');
+    const btnResetNorth = document.getElementById('btnResetNorth');
+    if (btnAutoAlignQibla) btnAutoAlignQibla.addEventListener('click', autoAlignToQibla);
+    if (btnResetNorth) btnResetNorth.addEventListener('click', resetCompassToNorth);
+    
     // About Modal Triggers
     const openAboutBtn = document.getElementById('openAboutBtn');
     const settingsAboutBtn = document.getElementById('settingsAboutBtn');
