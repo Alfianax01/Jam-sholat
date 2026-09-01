@@ -166,6 +166,16 @@ function closeSettingsModal() {
     if (modal) modal.classList.remove('show');
 }
 
+function openAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    if (modal) modal.classList.add('show');
+}
+
+function closeAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    if (modal) modal.classList.remove('show');
+}
+
 // =========================================================
 // 4. EVENT LISTENERS WIRING
 // =========================================================
@@ -374,6 +384,28 @@ function setupEventListeners() {
         });
     }
     if (btnDetectGPS) btnDetectGPS.addEventListener('click', detectCurrentGPSLocation);
+    
+    // About Modal Triggers
+    const openAboutBtn = document.getElementById('openAboutBtn');
+    const settingsAboutBtn = document.getElementById('settingsAboutBtn');
+    const footerAboutBtn = document.getElementById('footerAboutBtn');
+    const closeAboutModalBtn = document.getElementById('closeAboutModalBtn');
+    const aboutModal = document.getElementById('aboutModal');
+
+    if (openAboutBtn) openAboutBtn.addEventListener('click', openAboutModal);
+    if (settingsAboutBtn) {
+        settingsAboutBtn.addEventListener('click', () => {
+            closeSettingsModal();
+            openAboutModal();
+        });
+    }
+    if (footerAboutBtn) footerAboutBtn.addEventListener('click', openAboutModal);
+    if (closeAboutModalBtn) closeAboutModalBtn.addEventListener('click', closeAboutModal);
+    if (aboutModal) {
+        aboutModal.addEventListener('click', (e) => {
+            if (e.target === aboutModal) closeAboutModal();
+        });
+    }
 }
 
 // =========================================================

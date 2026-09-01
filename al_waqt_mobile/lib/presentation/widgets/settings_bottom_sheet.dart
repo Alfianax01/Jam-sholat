@@ -161,6 +161,51 @@ class SettingsBottomSheet extends StatelessWidget {
                 }
               },
             ),
+          const SizedBox(height: 8),
+
+          // 6. Tentang Al-Waqt (About)
+          _buildSettingRow(
+            icon: Icons.info_outline,
+            title: 'Tentang Al-Waqt',
+            subtitle: 'Versi v2.0.0, API Kemenag RI & Pengembang',
+            isDark: isDark,
+            trailing: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isDark ? AppColors.darkInnerBox : AppColors.lightInnerBox,
+                foregroundColor: AppColors.emeraldPrimary,
+                elevation: 0,
+                side: BorderSide(color: isDark ? AppColors.darkBorder : AppColors.lightBorder),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              ),
+              icon: const Icon(Icons.info, size: 14),
+              label: const Text('Tentang', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+              onPressed: () {
+                Navigator.pop(context);
+                showAboutDialog(
+                  context: context,
+                  applicationName: 'Al-Waqt (الْوَقْت)',
+                  applicationVersion: '2.0.0 (Production)',
+                  applicationIcon: Container(
+                    width: 44,
+                    height: 44,
+                    decoration: BoxDecoration(
+                      color: AppColors.emeraldPrimary.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(Icons.mosque, color: AppColors.emeraldPrimary, size: 26),
+                  ),
+                  applicationLegalese: '© 2026 Alfian (@Alfianax01) • Lisensi MIT Open Source\nData Sholat: Bimas Islam Kementerian Agama RI',
+                  children: const [
+                    SizedBox(height: 14),
+                    Text(
+                      'Al-Waqt adalah instrumen waktu Islami presisi dengan jam analog smooth sweep, kompas arah kiblat bola geodesik, jadwal sholat resmi Kemenag RI, audio muazin tanah suci, dan inspirasi harian Al-Qur\'an.',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
 
           const SizedBox(height: 14),

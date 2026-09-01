@@ -1,5 +1,10 @@
 # 🕌 Al-Waqt (الْوَقْت) • Presisi Waktu & Sholat Islami
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Android%20%7C%20iOS-059669.svg)](#)
+[![Data Source](https://img.shields.io/badge/Data%20Source-Kemenag%20RI-gold.svg)](https://bimasislam.kemenag.go.id/)
+[![Author](https://img.shields.io/badge/Author-Alfianax01-blue.svg)](https://github.com/Alfianax01)
+
 Aplikasi Jam Islami Mewah, Jadwal Sholat Presisi (Kemenag RI), Kompas Arah Kiblat Real-time, Hitung Mundur Ramadhan & Idul Fitri, serta Inspirasi Harian Al-Qur'an.
 
 Tersedia dalam 2 platform:
@@ -8,10 +13,37 @@ Tersedia dalam 2 platform:
 
 ---
 
+## ℹ️ Tentang Aplikasi (About Al-Waqt)
+
+### 🌟 Filosofi & Latar Belakang
+Nama **Al-Waqt (الْوَقْت)** diambil dari bahasa Arab yang bermakna **"Waktu"**, terinspirasi dari firman Allah SWT dalam Surah Al-'Ashr:
+> *"Demi masa. Sungguh, manusia berada dalam kerugian, kecuali orang-orang yang beriman dan mengerjakan kebajikan serta saling menasihati untuk kebenaran dan saling menasihati untuk kesabaran."* (QS. Al-'Ashr: 1-3)
+
+Aplikasi ini dibangun untuk memberikan pengalaman penunjuk waktu Islami yang tidak hanya akurat secara sains dan syariat, tetapi juga dirancang dengan estetika jam tangan mewah (*luxury haute horlogerie*), elegan, dan bebas dari iklan yang mengganggu kekhusyukan ibadah.
+
+### 👤 Profil & Pengembang
+* **Nama Proyek**: Al-Waqt (الْوَقْت)
+* **Versi Rilis**: `v2.0.0 (Production Edition)`
+* **Pengembang / Pemilik**: **Alfian** ([@Alfianax01](https://github.com/Alfianax01))
+* **Repositori Resmi**: [https://github.com/Alfianax01/Jam-sholat](https://github.com/Alfianax01/Jam-sholat)
+* **Tujuan**: Sebagai amal jariyah teknologi untuk mempermudah kaum Muslimin menjaga ketepatan waktu sholat fardhu dan sunnah di mana pun berada.
+
+### 🛠️ Arsitektur & Teknologi (Tech Stack)
+| Komponen | Platform Web | Platform Mobile (Flutter) |
+|---|---|---|
+| **Bahasa / Framework** | HTML5 Semantic, CSS3 Modular, JS ES6+ | Dart 3 & Flutter 3.32+ |
+| **State Management** | Native Vanilla Reactive State Controller | `provider` (`ChangeNotifierProvider`) |
+| **Desain & Tema** | Obsidian Jade (Dark) & Opal Ivory (Light) | Material Design 3 Custom Tokens |
+| **Audio Engine** | HTML5 Audio API Buffer Pool | `audioplayers: ^6.1.0` |
+| **Arah Kiblat** | Great-Circle Navigation (Trigonometri Bola) | `flutter_compass` & `geolocator` |
+| **Tipografi** | Plus Jakarta Sans, Amiri (Arabic), Outfit | Google Fonts Plus Jakarta Sans, Tajawal |
+
+---
+
 ## ✨ Fitur Utama
 
 - ⏱️ **Jam Analog & Digital Mewah**:
-  - Jarum detik *Smooth Sweep* (meluncur halus).
+  - Jarum detik *Smooth Sweep* (meluncur halus tanpa patah-patah).
   - Pilihan Angka Arab (١, ٢, ٣) & Latin (1, 2, 3).
   - Format 24 Jam atau 12 Jam (AM/PM).
   - Kalender Hijriah & Masehi otomatis.
@@ -26,7 +58,8 @@ Tersedia dalam 2 platform:
   - Makkah Al-Mukarramah, Madinah Al-Munawwarah, Mesir (Cairo), dan Turki (Istanbul).
   - Khusus waktu Subuh: Otomatis melantunkan lafadz *Tatswib* (*Ash-Shalatu Khairum Minan-Naum*).
 - 🌙 **Hitung Mundur Ramadhan & Idul Fitri**:
-  - Estimasi kalender Masehi 1448 H / 2027 M.
+  - Estimasi kalender Masehi 1448 H / 2027 M (~8 - 9 Februari 2027 M).
+  - Catatan sidang isbat resmi Kemenag RI & maklumat ormas.
 - 📖 **Inspirasi Harian Ayat Al-Qur'an**:
   - Kaligrafi Arab tajwid, terjemahan bahasa Indonesia, dan renungan harian.
 - 🌓 **Tema Obsidian Jade (Dark) & Opal Ivory (Light)**.
@@ -84,4 +117,4 @@ flutter build apk --release
 ---
 
 ## 📜 Lisensi
-Open-source di bawah lisensi MIT.
+Dilisensikan secara open-source di bawah lisensi **MIT License**. Silakan gunakan, pelajari, dan kembangkan untuk kemaslahatan umat.

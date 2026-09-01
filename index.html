@@ -61,6 +61,11 @@
                 <button class="header-icon-btn" id="openSettingsBtn" title="Pengaturan Tampilan & Format">
                     <i class="fa-solid fa-gear"></i>
                 </button>
+
+                <!-- About Modal Trigger -->
+                <button class="header-icon-btn" id="openAboutBtn" title="Tentang Aplikasi Al-Waqt">
+                    <i class="fa-solid fa-circle-info"></i>
+                </button>
             </div>
         </header>
 
@@ -338,6 +343,11 @@
         <!-- App Footer -->
         <footer class="app-footer">
             <p>Al-Waqt • Presisi Waktu & Sholat Islami • Kemenag RI</p>
+            <div>
+                <button class="footer-about-btn" id="footerAboutBtn" style="background:none; border:none; color:var(--emerald-primary); font-size:11px; font-weight:700; cursor:pointer; text-decoration:underline; display:inline-flex; align-items:center; gap:4px; margin-top:4px;">
+                    <i class="fa-solid fa-circle-info"></i> Tentang Aplikasi
+                </button>
+            </div>
         </footer>
     </div>
 
@@ -533,6 +543,22 @@
                         <i class="fa-solid fa-expand" id="fullscreenIcon"></i> Fullscreen
                     </button>
                 </div>
+
+                <!-- Tentang Aplikasi -->
+                <div class="settings-row">
+                    <div class="settings-row-left">
+                        <div class="settings-icon">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <div class="settings-info">
+                            <span class="settings-title">Tentang Al-Waqt</span>
+                            <span class="settings-desc">Informasi pengembang, versi, API & lisensi</span>
+                        </div>
+                    </div>
+                    <button class="settings-action-btn" id="settingsAboutBtn">
+                        <i class="fa-solid fa-circle-info"></i> Tentang
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -625,6 +651,92 @@
                     <i class="fa-solid fa-stop"></i> Hentikan
                 </button>
                 <button class="adzan-banner-close" id="closeAdzanBannerBtn" title="Tutup">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. ABOUT MODAL -->
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal-card" style="max-width: 520px;">
+            <div class="modal-header">
+                <div class="modal-title-box">
+                    <i class="fa-solid fa-circle-info modal-title-icon"></i>
+                    <h3>Tentang Al-Waqt</h3>
+                </div>
+                <button class="modal-close" id="closeAboutModalBtn">&times;</button>
+            </div>
+            <div class="about-modal-body">
+                <div class="about-hero">
+                    <div class="about-crest">
+                        <i class="fa-solid fa-mosque"></i>
+                    </div>
+                    <div class="about-app-name">
+                        <span>AL-WAQT</span>
+                        <span class="about-arabic-title">الْوَقْت</span>
+                    </div>
+                    <div class="about-version-chip">
+                        <i class="fa-solid fa-code-branch"></i> Versi 2.0.0 • Production
+                    </div>
+                    <p class="about-tagline">Presisi Waktu & Jadwal Sholat Islami Terintegrasi Kemenag RI</p>
+                </div>
+
+                <div class="about-description">
+                    <strong>Al-Waqt (الْوَقْت)</strong> adalah instrumen penunjuk waktu Islami modern yang memadukan estetika jam tangan mewah dengan akurasi astronomis. Dilengkapi jam analog <em>smooth sweep</em>, jadwal sholat resmi Kemenag RI, kompas kiblat trigonometri bola, adzan otomatis 4 muazin dunia, dan inspirasi harian Al-Qur'an.
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-spec-card">
+                        <div class="about-spec-icon"><i class="fa-solid fa-database"></i></div>
+                        <div class="about-spec-info">
+                            <span class="about-spec-title">Jadwal Sholat</span>
+                            <span class="about-spec-val">Kemenag RI (Bimas Islam)</span>
+                        </div>
+                    </div>
+                    <div class="about-spec-card">
+                        <div class="about-spec-icon"><i class="fa-solid fa-compass"></i></div>
+                        <div class="about-spec-info">
+                            <span class="about-spec-title">Arah Kiblat</span>
+                            <span class="about-spec-val">Great-Circle Navigation</span>
+                        </div>
+                    </div>
+                    <div class="about-spec-card">
+                        <div class="about-spec-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                        <div class="about-spec-info">
+                            <span class="about-spec-title">Muazin Adzan</span>
+                            <span class="about-spec-val">Makkah, Madinah, Mesir, Turki</span>
+                        </div>
+                    </div>
+                    <div class="about-spec-card">
+                        <div class="about-spec-icon"><i class="fa-solid fa-calendar-star"></i></div>
+                        <div class="about-spec-info">
+                            <span class="about-spec-title">Kalender Islam</span>
+                            <span class="about-spec-val">Hisab Hijriah 1448 H / 2027 M</span>
+                        </div>
+                    </div>
+                    <div class="about-spec-card">
+                        <div class="about-spec-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div class="about-spec-info">
+                            <span class="about-spec-title">Platform</span>
+                            <span class="about-spec-val">Web & Mobile (Flutter)</span>
+                        </div>
+                    </div>
+                    <div class="about-spec-card">
+                        <div class="about-spec-icon"><i class="fa-solid fa-user-check"></i></div>
+                        <div class="about-spec-info">
+                            <span class="about-spec-title">Pengembang</span>
+                            <span class="about-spec-val">Alfian (@Alfianax01)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-actions">
+                    <a href="https://github.com/Alfianax01/Jam-sholat" target="_blank" rel="noopener noreferrer" class="btn-github-link">
+                        <i class="fa-brands fa-github"></i> Kunjungi Repository di GitHub
+                    </a>
+                    <div class="about-license-note">
+                        Lisensi Open-Source MIT • Dibuat dengan dedikasi untuk kemaslahatan umat
+                    </div>
+                </div>
             </div>
         </div>
     </div>
