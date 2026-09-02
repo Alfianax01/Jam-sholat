@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self' https://api.myquran.com; media-src 'self' blob: data:; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https:; media-src 'self' blob: data:; connect-src 'self' https://api.myquran.com; base-uri 'self'; form-action 'self';">
     <title>Al-Waqt • Presisi Waktu & Sholat Islami</title>
     <!-- Google Fonts: Plus Jakarta Sans, Arabic Amiri, Heading Outfit, Display Orbitron -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -575,22 +575,19 @@
             </div>
 
             <div class="qibla-modal-body">
-                <!-- Angle & Distance Readouts (3 Concise Cards) -->
+                <!-- Angle & Distance Readouts -->
                 <div class="qibla-readout-grid">
                     <div class="qibla-readout-card">
-                        <span class="qibla-readout-label">ARAH KIBLAT</span>
-                        <span class="qibla-readout-val accent" id="qiblaAngleVal">295.2°</span>
-                        <span class="qibla-readout-sub" id="qiblaCardinalSub">Barat Laut</span>
+                        <span class="qibla-readout-label">Arah Kiblat Ka'bah</span>
+                        <span class="qibla-readout-val accent" id="qiblaAngleVal">295.1°</span>
                     </div>
                     <div class="qibla-readout-card">
-                        <span class="qibla-readout-label">ARAH KOMPAS</span>
-                        <span class="qibla-readout-val" id="compassHeadingVal">0°</span>
-                        <span class="qibla-readout-sub" id="compassHeadingSub">Utara</span>
+                        <span class="qibla-readout-label">Arah Kompas (Heading)</span>
+                        <span class="qibla-readout-val" id="compassHeadingVal">0° (Utara)</span>
                     </div>
                     <div class="qibla-readout-card">
-                        <span class="qibla-readout-label">JARAK KA'BAH</span>
-                        <span class="qibla-readout-val" id="qiblaDistVal">7.925 km</span>
-                        <span class="qibla-readout-sub">Makkah</span>
+                        <span class="qibla-readout-label">Jarak ke Makkah</span>
+                        <span class="qibla-readout-val" id="qiblaDistVal">~7.925 km</span>
                     </div>
                 </div>
 

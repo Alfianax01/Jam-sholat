@@ -37,15 +37,12 @@ class QiblaCalculator {
   }
 
   static String getCardinalDirection(double angle) {
-    final norm = (angle % 360 + 360) % 360;
-    if (norm >= 337.5 || norm < 22.5) return 'Utara';
-    if (norm >= 22.5 && norm < 67.5) return 'Timur Laut';
-    if (norm >= 67.5 && norm < 112.5) return 'Timur';
-    if (norm >= 112.5 && norm < 157.5) return 'Tenggara';
-    if (norm >= 157.5 && norm < 202.5) return 'Selatan';
-    if (norm >= 202.5 && norm < 247.5) return 'Barat Daya';
-    if (norm >= 247.5 && norm < 292.5) return 'Barat';
-    return 'Barat Laut';
+    if (angle >= 270 && angle < 315) return 'Barat Laut (NW)';
+    if (angle >= 225 && angle < 270) return 'Barat Daya (SW)';
+    if (angle >= 315 || angle < 45) return 'Utara (N)';
+    if (angle >= 45 && angle < 135) return 'Timur (E)';
+    if (angle >= 135 && angle < 225) return 'Selatan (S)';
+    return 'Barat (W)';
   }
 }
 

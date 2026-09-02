@@ -181,14 +181,14 @@ function updateQiblaCalculations(customLat = null, customLng = null, locationNam
 
 function getCardinalDirection(angle) {
     const norm = (angle % 360 + 360) % 360;
-    if (norm >= 337.5 || norm < 22.5) return 'Utara';
-    if (norm >= 22.5 && norm < 67.5) return 'Timur Laut';
-    if (norm >= 67.5 && norm < 112.5) return 'Timur';
-    if (norm >= 112.5 && norm < 157.5) return 'Tenggara';
-    if (norm >= 157.5 && norm < 202.5) return 'Selatan';
-    if (norm >= 202.5 && norm < 247.5) return 'Barat Daya';
-    if (norm >= 247.5 && norm < 292.5) return 'Barat';
-    return 'Barat Laut';
+    if (norm >= 337.5 || norm < 22.5) return 'Utara (U)';
+    if (norm >= 22.5 && norm < 67.5) return 'Timur Laut (TL)';
+    if (norm >= 67.5 && norm < 112.5) return 'Timur (T)';
+    if (norm >= 112.5 && norm < 157.5) return 'Tenggara (TG)';
+    if (norm >= 157.5 && norm < 202.5) return 'Selatan (S)';
+    if (norm >= 202.5 && norm < 247.5) return 'Barat Daya (BD)';
+    if (norm >= 247.5 && norm < 292.5) return 'Barat (B)';
+    return 'Barat Laut (BL)';
 }
 
 /**
@@ -214,11 +214,9 @@ function createCompassTicks() {
  */
 function renderQiblaCompassUI() {
     const qiblaAngleVal = document.getElementById('qiblaAngleVal');
-    const qiblaCardinalSub = document.getElementById('qiblaCardinalSub');
     const qiblaDistVal = document.getElementById('qiblaDistVal');
     const qiblaLocationLabel = document.getElementById('qiblaLocationLabel');
     const compassHeadingVal = document.getElementById('compassHeadingVal');
-    const compassHeadingSub = document.getElementById('compassHeadingSub');
     const compassDial = document.getElementById('compassDial');
     const qiblaNeedle = document.getElementById('qiblaNeedle');
     const qiblaStatusBadge = document.getElementById('qiblaStatusBadge');
@@ -226,12 +224,10 @@ function renderQiblaCompassUI() {
     const targetAngle = qiblaState.qiblaBearing;
     const curHeading = (qiblaState.deviceHeading % 360 + 360) % 360;
 
-    if (qiblaAngleVal) qiblaAngleVal.textContent = `${targetAngle.toFixed(1)}°`;
-    if (qiblaCardinalSub) qiblaCardinalSub.textContent = getCardinalDirection(targetAngle);
-    if (compassHeadingVal) compassHeadingVal.textContent = `${Math.round(curHeading)}°`;
-    if (compassHeadingSub) compassHeadingSub.textContent = getCardinalDirection(curHeading);
-    if (qiblaDistVal) qiblaDistVal.textContent = `${qiblaState.distanceKm.toLocaleString('id-ID')} km`;
+    if (qiblaAngleVal) qiblaAngleVal.textContent = `${targetAngle.toFixed(1)}° (${getCardinalDirection(targetAngle)})`;
+    if (qiblaDistVal) qiblaDistVal.textContent = `~${qiblaState.distanceKm.toLocaleString('id-ID')} km`;
     if (qiblaLocationLabel) qiblaLocationLabel.textContent = qiblaState.locationSource;
+    if (compassHeadingVal) compassHeadingVal.textContent = `${Math.round(curHeading)}° (${getCardinalDirection(curHeading)})`;
 
     // Rotate Dial counter-clockwise by device heading
     if (compassDial) {
