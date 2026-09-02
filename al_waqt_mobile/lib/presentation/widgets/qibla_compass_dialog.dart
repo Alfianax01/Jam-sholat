@@ -104,43 +104,87 @@ class _QiblaCompassDialogState extends State<QiblaCompassDialog> {
 
             const SizedBox(height: 14),
 
-            // Readouts: Angle & Distance
+            // Readouts: 3 Columns
             Row(
               children: [
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
                     decoration: BoxDecoration(
                       color: isDark ? AppColors.darkInnerBox : AppColors.lightInnerBox,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+                        width: 0.8,
+                      ),
                     ),
                     child: Column(
                       children: [
-                        const Text('DERAJAT KIBLAT', style: TextStyle(fontSize: 8, fontWeight: FontWeight.w800, color: Colors.grey)),
-                        const SizedBox(height: 2),
+                        const Text('KIBLAT', style: TextStyle(fontSize: 7.5, fontWeight: FontWeight.w800, color: Colors.grey)),
+                        const SizedBox(height: 1),
                         Text(
                           '${qiblaAngle.toStringAsFixed(1)}°',
-                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: AppColors.emeraldPrimary),
+                          style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w900, color: AppColors.emeraldPrimary),
+                        ),
+                        Text(
+                          QiblaCalculator.getCardinalDirection(qiblaAngle),
+                          style: const TextStyle(fontSize: 8, fontWeight: FontWeight.w600, color: Colors.grey),
                         ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 5),
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
                     decoration: BoxDecoration(
                       color: isDark ? AppColors.darkInnerBox : AppColors.lightInnerBox,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+                        width: 0.8,
+                      ),
                     ),
                     child: Column(
                       children: [
-                        const Text('JARAK KE KA\'BAH', style: TextStyle(fontSize: 8, fontWeight: FontWeight.w800, color: Colors.grey)),
-                        const SizedBox(height: 2),
+                        const Text('KOMPAS', style: TextStyle(fontSize: 7.5, fontWeight: FontWeight.w800, color: Colors.grey)),
+                        const SizedBox(height: 1),
                         Text(
-                          '~$distanceKm km',
-                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                          '${_heading.round()}°',
+                          style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w900),
+                        ),
+                        Text(
+                          QiblaCalculator.getCardinalDirection(_heading),
+                          style: const TextStyle(fontSize: 8, fontWeight: FontWeight.w600, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 5),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+                    decoration: BoxDecoration(
+                      color: isDark ? AppColors.darkInnerBox : AppColors.lightInnerBox,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+                        width: 0.8,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        const Text('JARAK', style: TextStyle(fontSize: 7.5, fontWeight: FontWeight.w800, color: Colors.grey)),
+                        const SizedBox(height: 1),
+                        Text(
+                          '$distanceKm km',
+                          style: const TextStyle(fontSize: 11.5, fontWeight: FontWeight.bold),
+                        ),
+                        const Text(
+                          'Makkah',
+                          style: TextStyle(fontSize: 8, fontWeight: FontWeight.w600, color: Colors.grey),
                         ),
                       ],
                     ),

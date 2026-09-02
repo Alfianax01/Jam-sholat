@@ -969,34 +969,39 @@
 .qibla-readout-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 6px;
     width: 100%;
 }
 
 .qibla-readout-card {
     background: var(--inner-box-bg);
     border: 1px solid var(--card-border);
-    padding: 8px 6px;
+    padding: 7px 4px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2px;
+    gap: 1px;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .qibla-readout-label {
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 800;
     letter-spacing: 0.3px;
     color: var(--text-muted);
     text-transform: uppercase;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1;
 }
 
 .qibla-readout-val {
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 800;
     color: var(--text-primary);
     line-height: 1.2;
@@ -1005,6 +1010,14 @@
 
 .qibla-readout-val.accent {
     color: var(--accent);
+}
+
+.qibla-readout-sub {
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    line-height: 1.1;
+    white-space: nowrap;
 }
 
 /* --- PERFECT CIRCULAR COMPASS VIEWPORT (NO SQUISHING / ANTI-PENYET) --- */
@@ -1371,20 +1384,24 @@
     }
 
     .qibla-readout-grid {
-        gap: 5px;
+        gap: 4px;
     }
 
     .qibla-readout-card {
-        padding: 6px 4px;
+        padding: 5px 3px;
         border-radius: 10px;
     }
 
     .qibla-readout-label {
-        font-size: 0.58rem;
+        font-size: 0.54rem;
     }
 
     .qibla-readout-val {
-        font-size: 0.78rem;
+        font-size: 0.82rem;
+    }
+
+    .qibla-readout-sub {
+        font-size: 0.6rem;
     }
 
     .compass-viewport {
