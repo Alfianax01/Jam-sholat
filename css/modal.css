@@ -943,6 +943,11 @@
 /* =========================================================
    QIBLA COMPASS MODAL STYLES (KOMPAS ARAH KIBLAT)
    ========================================================= */
+#qiblaModal .modal-card {
+    max-width: 410px;
+    border-radius: 24px;
+}
+
 .qibla-modal-body {
     padding: 14px 18px 20px;
     display: flex;
@@ -966,13 +971,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
     width: 100%;
-}
-
-@media (max-width: 480px) {
-    .qibla-readout-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 5px;
-    }
 }
 
 .qibla-readout-card {
@@ -1012,14 +1010,14 @@
 /* --- PERFECT CIRCULAR COMPASS VIEWPORT (NO SQUISHING / ANTI-PENYET) --- */
 .compass-viewport {
     position: relative;
-    width: 220px;
-    height: 220px;
-    min-width: 220px;
-    min-height: 220px;
-    max-width: 220px;
-    max-height: 220px;
+    width: 210px;
+    height: 210px;
+    min-width: 210px;
+    min-height: 210px;
+    max-width: 210px;
+    max-height: 210px;
     aspect-ratio: 1 / 1;
-    flex: 0 0 220px; /* CRITICAL: NEVER squish vertically in flex containers */
+    flex: 0 0 210px; /* CRITICAL: NEVER squish vertically in flex containers */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1358,6 +1356,71 @@
     color: #ffffff;
     border-color: var(--accent);
     box-shadow: 0 2px 10px var(--accent-glow);
+}
+
+/* --- COMPACT MOBILE RESPONSIVE TUNING FOR QIBLA MODAL --- */
+@media (max-width: 480px) {
+    #qiblaModal .modal-card {
+        max-width: 360px;
+        border-radius: 22px;
+    }
+
+    .qibla-modal-body {
+        padding: 12px 14px 16px;
+        gap: 10px;
+    }
+
+    .qibla-readout-grid {
+        gap: 5px;
+    }
+
+    .qibla-readout-card {
+        padding: 6px 4px;
+        border-radius: 10px;
+    }
+
+    .qibla-readout-label {
+        font-size: 0.58rem;
+    }
+
+    .qibla-readout-val {
+        font-size: 0.78rem;
+    }
+
+    .compass-viewport {
+        width: 190px;
+        height: 190px;
+        min-width: 190px;
+        min-height: 190px;
+        max-width: 190px;
+        max-height: 190px;
+        flex: 0 0 190px;
+        margin: 2px auto;
+    }
+
+    .qibla-needle {
+        height: 72px;
+        margin-top: -72px;
+    }
+
+    .compass-tick {
+        transform-origin: 50% 84px;
+    }
+
+    .qibla-status-badge {
+        padding: 7px 10px;
+        font-size: 0.76rem;
+    }
+
+    .btn-qibla-ctrl {
+        padding: 7px 8px;
+        font-size: 0.74rem;
+    }
+
+    .btn-detect-gps {
+        padding: 5px 8px;
+        font-size: 0.72rem;
+    }
 }
 
 /* =========================================================
